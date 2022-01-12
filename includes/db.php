@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username = "phpszakmai";
-$password = "dirW._/5d8pILDkk";
+$username = "phpteszt";
+$password = "Jelszó";
 $dbname = "szakmai";
 
 // Create connection
