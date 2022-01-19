@@ -2,9 +2,9 @@
 
 session_start();
 
-require 'includes/db.inc.php';
-require 'model/Ulesrend.php';
-//$tanulo = new Ulesrend;
+require 'includes/db.php';
+require 'felhasznalok.php';
+$tanulo = new Felhasznalok();
 
 // default oldal
 $page = 'index';
@@ -39,12 +39,12 @@ $menupontok = array(    'index' => "Főoldal",
 
 $title = $menupontok[$page];
 
-include 'includes/htmlheader.inc.php';
+include 'includes/htmlheader.php';
 ?>
 <body>
 <?php
 
-include 'includes/menu.inc.php';
+include 'includes/menu.php';
 include 'controller/'.$page.'.php';
 
 ?>

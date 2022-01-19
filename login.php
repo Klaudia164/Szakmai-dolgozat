@@ -5,7 +5,7 @@ if(isset($_POST['user']) and isset($_POST['pw'])) {
 	if(strlen($_POST['user']) == 0) $loginError .= "Nem írtál be felhasználónevet<br>";
 	if(strlen($_POST['pw']) == 0) $loginError .= "Nem írtál be jelszót<br>";
 	if($loginError == '') {
-		$sql = "SELECT id FROM ulesrend WHERE felhasznalonev = '".$_POST['user']."' ";
+		$sql = "SELECT id FROM felhasznalo WHERE felhasznalonev = '".$_POST['user']."' ";
 
 		if(!$result = $conn->query($sql)) echo $conn->error;
 
@@ -16,7 +16,7 @@ if(isset($_POST['user']) and isset($_POST['pw'])) {
 				if(md5($_POST['pw']) == $tanulo->get_jelszo()) {
 					$_SESSION["id"] = $row['id'];
 					$_SESSION["nev"] = $tanulo->get_nev();
-                    header('Location: index.php?page=ulesrend');
+                    header('Location: index.php?page=');
                     exit();
 				}
 				else $loginError .= 'Érvénytelen jelszó<br>';

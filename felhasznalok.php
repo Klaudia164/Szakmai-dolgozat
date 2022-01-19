@@ -1,24 +1,16 @@
 <?php
 
-class felhasznalok {
+require_once 'kijelolt.php';
+
+class Felhasznalok extends kijelolt {
     
-    private $id;
-    protected $tablaNev;
-
-
-    // id listát ad vissza
-    public function lista($conn) {
-        $lista = array();
-        $sql = "SELECT id FROM $this->tablaNev";
-        if($result = $conn->query($sql)) {
-            if ($result->num_rows > 0) {
-				while($row = $result->fetch_assoc()) {
-                    $lista[] = $row['id'];
-                }
-            }
-        }
-        return $lista;
+    function __construct() {
+        $this->tablaNev = 'felhasznalok';
     }
+
+    /**
+     * 
+     */
 }
 
 ?>
