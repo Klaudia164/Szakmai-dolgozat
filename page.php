@@ -8,12 +8,16 @@ include 'includes/menu.php';
     <title> </title>
     <style>
         body{
-            background-image: url("https://wallpapercave.com/wp/wp2641455.jpg");
-            background-repeat: repeat;
+            background-image: linear-gradient(180deg, black, maroon);
         }
 
         h1, h2, h3, h4, p {
             margin-left: 100px;
+            color: 	gray;
+        }
+
+        img{
+            box-shadow: 10px 20px 5px black;
         }
     </style>
 </head>
