@@ -1,27 +1,23 @@
 <?php
 
-class kijelolt {
+class felhasznalok {
     
     private $id;
-    protected $tablaNev;
+    private $felhasznalonev;
+    private $jelszo;
 
-    public function set_id($id, $conn) {
+    public function set_user($id, $conn) {
         // adatbázisból lekérdezzük
-        $sql = "SELECT id FROM $this->tablaNev WHERE id = $id ";
+        $sql = "SELECT id, felhasznalonev, jelszo FROM felhasznalok";
+        $sql .= " WHERE id = $id ";
         $result = $conn->query($sql);
         if ($conn->query($sql)) {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $this->id = $row['id'];
-            }
-            else {
-                $sql = "INSERT INTO $this->tablaNev VALUES($id) ";
-                if($result = $conn->query($sql)) {
-                    $this->id = $id;
-                }
-                else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+                $this->felhasznalonev = $row['felhasznalonev'];
+                $this->jelszo = $row['jelszo'];
+                
             }
         } 
         else {
@@ -29,15 +25,21 @@ class kijelolt {
         }
     }
 
-    // építsük fel az összes get metódust
+    public function get_jelszo() {
+        return $this->jelszo;
+    }
+
+    public function get_felhasznalonev() {
+        return $this->felhasznalonev;
+    }
+
     public function get_id() {
         return $this->id;
     }
 
-    // id listát ad vissza
-    public function lista($conn) {
+    public function felhasznalokListaja($conn) {
         $lista = array();
-        $sql = "SELECT id FROM $this->tablaNev";
+        $sql = "SELECT id FROM felhasznalok";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {

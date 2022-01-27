@@ -3,11 +3,11 @@
 session_start();
 
 require 'includes/db.php';
-require 'felhasznalok.php';
-$tanulo = new Felhasznalok();
+require 'model/felhasznalok.php';
+$felhasznalo = new felhasznalok();
 
 // default oldal
-$page = 'index';
+$page = 'oldal';
 
 // kilépés végrehajtása
 if(!empty($_REQUEST['action'])) {
@@ -31,7 +31,7 @@ if(isset($_REQUEST['page'])) {
         }
 }
 
-$menupontok = array(    'index' => "Főoldal", 
+$menupontok = array(    'page' => "Főoldal", 
                         'ulesrend' => "Ülésrend", 
                         'felhasznalo' => $szoveg,
                         'chPass' => "Beállítások"
