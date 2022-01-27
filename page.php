@@ -8,7 +8,7 @@ include 'includes/menu.php';
     <title> </title>
     <style>
         h1, h2, h3, h4, p {
-            margin-left: 250px;
+            margin-left: 100px;
         }
     </style>
 </head>
@@ -18,19 +18,26 @@ include 'includes/menu.php';
 
 <h2> What can you find on this site you ask? Well let me tell you!</h2>
 <h3> On this page you can find infos about: </h3>
-<ul>
+<ol>
+    <h3>
+        <li>
+        The best actors and actresses
+        <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/2020/04/Avengers-Endgame-Original-Six.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Actors" width="650px">
+        </li>
+    </h3>
+    <h3>
+           <li>
+        The best movies
+        <img src="https://cainlive.com/wp-content/uploads/2019/12/Butt.jpg" alt=" Movies" width="650px">
+        </li> 
+    </h3>
+    <h3>    
     <li>
-        <h4>The best actors and actresses</h4> 
-        <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/2020/04/Avengers-Endgame-Original-Six.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Actors">
+        And the best tv shows
+        <img src="https://thelighthousechc.com/wp-content/uploads/2019/01/top-10-tv-675x900.jpg" alt="Tv shows" width="650px">
     </li>
-    <li>
-        <h4>The best movies</h4>
-        <img src="https://cainlive.com/wp-content/uploads/2019/12/Butt.jpg" alt=" Movies">
-    </li>
-    <li>
-        <h4>And the best tv shows</h4>
-        <img src="https://thelighthousechc.com/wp-content/uploads/2019/01/top-10-tv-675x900.jpg" alt="Tv shows">
-    </li>
-</ul>
+    </h3>
+
+</ol>
 </body>
 </html>
