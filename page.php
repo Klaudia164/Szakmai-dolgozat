@@ -7,6 +7,11 @@ include 'includes/menu.php';
 <head>
     <title> </title>
     <style>
+        body{
+            background-image: url("https://wallpapercave.com/wp/wp2641455.jpg");
+            background-repeat: repeat;
+        }
+
         h1, h2, h3, h4, p {
             margin-left: 100px;
         }
@@ -21,21 +26,27 @@ include 'includes/menu.php';
 <ol>
     <h3>
         <li>
-        The best actors and actresses
-        <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/2020/04/Avengers-Endgame-Original-Six.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Actors" width="650px">
+            The best actors and actresses
+        <a href="***">
+            <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/2020/04/Avengers-Endgame-Original-Six.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5" alt="Actors" width="650px">
+        </a>
         </li>
     </h3>
     <h3>
-           <li>
-        The best movies
-        <img src="https://cainlive.com/wp-content/uploads/2019/12/Butt.jpg" alt=" Movies" width="650px">
-        </li> 
+        <li>
+            The best movies
+        <a href="***">
+            <img src="https://cainlive.com/wp-content/uploads/2019/12/Butt.jpg" alt=" Movies" width="650px">
+        </a>
+            </li> 
     </h3>
     <h3>    
-    <li>
-        And the best tv shows
-        <img src="https://thelighthousechc.com/wp-content/uploads/2019/01/top-10-tv-675x900.jpg" alt="Tv shows" width="650px">
-    </li>
+        <li>
+            And the best tv shows
+        <a href="***">
+            <img src="https://thelighthousechc.com/wp-content/uploads/2019/01/top-10-tv-675x900.jpg" alt="Tv shows" width="650px">
+        </a>
+        </li>
     </h3>
 
 </ol>
