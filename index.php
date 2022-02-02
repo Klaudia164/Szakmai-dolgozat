@@ -33,6 +33,7 @@ if(isset($_REQUEST['page'])) {
 
 $menupontok = array(    'page' => "Main", 
                         'login' => "Login",
+                        'regisztracio' => "Register",
                 );
 
 $title = $menupontok[$page];
