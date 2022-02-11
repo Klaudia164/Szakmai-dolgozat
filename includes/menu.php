@@ -8,7 +8,7 @@
       
         foreach($menupontok as $key => $value) {
             $active = '';
-            if($_SERVER['REQUEST_URI'] == '/szakmai/'.$key) $active = ' active';
+            if($_SERVER['REQUEST_URI'] == '/klaudia/szakdolgozat/'.$key) $active = ' active';
 
             if($key == 'felhasznalo') $key.='&action='.$action;
             ?>

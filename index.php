@@ -2,7 +2,7 @@
 
 session_start();
 
-//require 'includes/db.php';
+require 'includes/db.php';
 require 'model/felhasznalok.php';
 $felhasznalo = new felhasznalok();
 
@@ -16,7 +16,7 @@ if(!empty($_REQUEST['action'])) {
 
 // ki vagy be vagyok lépve?
 if(!empty($_SESSION["id"])) {
-        $szoveg = $_SESSION["nev"].": Kilépés";
+        $szoveg = $_SESSION["felhasznalonev"].": Kilépés";
         $action = "kilepes";
 }
 else {
