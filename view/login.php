@@ -1,4 +1,5 @@
-<div>
+<body class="bg">
+<div class="wrapper">
     <h2>Login</h2>
     <p>Fill out the fields to login.</p>
 
@@ -9,7 +10,7 @@
     ?>
 
     <form action="index.php?page=login" method="post" class="row g-3">
-    <div class="form-group col-md-3">
+    <div class="form-group col-auto">
         <label>Username</label>
         <input type="text" name="user" class="form-control">
     </div>    
@@ -19,7 +20,7 @@
     </div>
     <div class="form-group col-auto">
         <input type="submit" class="btn btn-primary" value="Login">
+        <span>Not registerd yet? <a href="index.php?page=regisztracio">Register here.</a>.</span>
     </div>
-    <p>Not registerd yet? <a href="index.php?page=regisztracio">Register here.</a>.</p>
     </form>
 </div>
