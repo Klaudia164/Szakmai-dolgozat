@@ -11,18 +11,8 @@ $page = 'page';
 
 // kilépés végrehajtása
 if(!empty($_REQUEST['action'])) {
-	if($_REQUEST['action'] == 'kilepes') session_unset();
+	if($_REQUEST['action'] == 'logout') session_unset();
 }
-
-// ki vagy be vagyok lépve?
-if(!empty($_SESSION["id"])) {
-        $szoveg = $_SESSION["felhasznalonev"].": Kilépés";
-        $action = "kilepes";
-}
-else {
-        $szoveg = "Belépés";
-        $action = "belepes";        
-} 
 
 // router
 if(isset($_REQUEST['page'])) {
