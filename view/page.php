@@ -7,17 +7,17 @@
 <ol>
     <h3>
         <li>
-            The best actors and actresses
+            <a href="index.php?page=actors">The best actors and actresses</a>
         </li>
     </h3>
     <h3>
         <li>
-            The best movies
+        <a href="index.php?page=movies">The best movies</a>
             </li> 
     </h3>
     <h3>    
         <li>
-            And the best tv shows
+        <a href="index.php?page=series">And the best tv shows</a>
         </li>
     </h3>
 

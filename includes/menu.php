@@ -18,21 +18,30 @@
                   </li>
                 <?php
               }
+            }elseif($key == 'movies' || $key == 'actors' || $key == 'series'){
+              if(isset($_SESSION['id'])){
+              ?>
+              <li class="nav-item<?php echo $active; ?>">
+                  <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
+              </li>
+              <?php
+              }
             }else{
             ?>
             <li class="nav-item<?php echo $active; ?>">
                 <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
             </li>
             <?php
-            if(isset($_SESSION['id'])){
-              ?>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=logout">Logout: <?php echo $_SESSION["felhasznalonev"]; ?></a>
-                  </li>
-                <?php
-            } 
+           
             }           
         }
+        if(isset($_SESSION['id'])){
+          ?>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?action=logout">Logout: <?php echo $_SESSION["felhasznalonev"]; ?></a>
+              </li>
+            <?php
+        } 
 
       ?>
     </ul>
