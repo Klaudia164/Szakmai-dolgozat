@@ -4,7 +4,10 @@ session_start();
 
 require 'includes/db.php';
 require 'model/felhasznalok.php';
+require 'model/movies.php';
 $felhasznalo = new felhasznalok();
+$movies = new movies();
+$movieList = $movies -> filmekListaja($conn);
 
 // default page
 $page = 'page';
@@ -24,6 +27,9 @@ if(isset($_REQUEST['page'])) {
 $menupontok = array(    'page' => "Main", 
                         'login' => "Login",
                         'regisztracio' => "Register",
+                        'movies' => "Movies",
+                        'actors' => "Actors",
+                        'series' => "Tv shows",
                 );
 
 $title = $menupontok[$page];
