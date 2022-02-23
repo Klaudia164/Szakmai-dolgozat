@@ -5,10 +5,18 @@ session_start();
 require 'includes/db.php';
 require 'model/felhasznalok.php';
 require 'model/movies.php';
+require 'model/series.php';
+require 'model/actors.php';
+
 $felhasznalo = new felhasznalok();
 $movies = new movies();
 $movieList = $movies -> filmekListaja($conn);
 
+$series = new series();
+$seriesList = $series -> sorozatokListaja($conn);
+
+$actors = new actors();
+$actorsList = $actors -> szineszekListaja($conn);
 // default page
 $page = 'page';
 
