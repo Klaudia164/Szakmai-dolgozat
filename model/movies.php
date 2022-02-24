@@ -6,10 +6,11 @@ class movies {
     private $nev;
     private $mufaj;
     private $info;
+    private $hatter;
 
     public function set_movie($id, $conn) {
         // adatbázisból lekérdezzük
-        $sql = "SELECT id, nev, mufaj, info FROM filmek";
+        $sql = "SELECT id, nev, mufaj, info, hatter FROM filmek";
         $sql .= " WHERE id = $id ";
         $result = $conn->query($sql);
         if ($conn->query($sql)) {
@@ -19,6 +20,7 @@ class movies {
                 $this->nev = $row['nev'];
                 $this->mufaj = $row['mufaj'];
                 $this->info = $row['info'];
+                $this->hatter = $row['hatter'];
                 
             }
         } 
@@ -41,6 +43,10 @@ class movies {
 
     public function get_info() {
         return $this->info;
+    }
+
+    public function get_hatter() {
+        return $this->hatter;
     }
 
     public function filmekListaja($conn) {
