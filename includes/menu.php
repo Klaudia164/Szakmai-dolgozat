@@ -3,7 +3,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <?php
       
         foreach($menupontok as $key => $value) {
@@ -18,14 +18,6 @@
                   </li>
                 <?php
               }
-            }elseif($key == 'movies' || $key == 'actors' || $key == 'series'){
-              if(isset($_SESSION['id'])){
-              ?>
-              <li class="nav-item<?php echo $active; ?>">
-                  <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
-              </li>
-              <?php
-              }
             }else{
             ?>
             <li class="nav-item<?php echo $active; ?>">
@@ -38,12 +30,23 @@
         if(isset($_SESSION['id'])){
           ?>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?action=logout">Logout: <?php echo $_SESSION["felhasznalonev"]; ?></a>
+                <a class="nav-link" href="index.php?action=logout"><span class="bi bi-box-arrow-left"></span> Logout: <?php echo $_SESSION["felhasznalonev"]; ?></a>
               </li>
             <?php
         } 
-
+        ?>
+        </ul>
+    </div>
+      <?php
+      if( isset($_REQUEST['page']) && ( ($_REQUEST['page'] == "movies" && empty($_REQUEST['movieId'])) || ($_REQUEST['page'] == "actors"  && empty($_REQUEST['actorsId'])) || ($_REQUEST['page'] == "series" && empty($_REQUEST['seriesId'])))){
+        
+        ?>
+    
+    <form class="d-flex" method = "post">
+      <input class="sch" type="search" name="search" aria-label="Search"></span>
+    </form>
+      
+    <?php
+      }
       ?>
-    </ul>
-  </div>
 </nav>

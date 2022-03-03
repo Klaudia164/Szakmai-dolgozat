@@ -51,7 +51,11 @@ class movies {
 
     public function filmekListaja($conn) {
         $lista = array();
-        $sql = "SELECT id FROM filmek";
+        $search = '';
+        if(!empty ($_POST['search'])){
+            $search = $_POST['search'];
+        }
+        $sql = "SELECT id FROM filmek WHERE nev LIKE ('%".$search."%')";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {

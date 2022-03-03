@@ -1,6 +1,8 @@
 .page{
-    background-image:url("/Szakmai-dolgozat/images/441125.jpg");
-    color: 	white;
+    background-image:url("../images/main.jpg");
+    background-attachment: fixed;
+    color: 	white; 
+    
 }
 
 h1, h2, h3, h4 {
@@ -13,8 +15,39 @@ img{
 }
 
 .bg{
-    background-image:url("/Szakmai-dolgozat/images/441125.jpg");
+    background-image:url("../images/main.jpg");
     color: 	white;
 }
 
 .wrapper{ width: 360px; padding: 20px; font: 14px sans-serif; }
+
+#navbarNav{
+    font-family: 'Indie Flower';
+    font-weight: bold;
+}
+
+.forgat{
+    transform: rotate(0.5turn);
+}
+
+.feloldal{
+    width: 50%;
+}
+
+.sch {
+    display:block;
+    margin: 0 0 0 auto;
+    width: 50px;
+    -webkit-transition: width 0.4s ease-in;
+    transition: width 0.4s ease-in;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.sch::before {
+    content: \f52a;
+}
+.sch:focus {
+    width: 100%;
+  }
+  

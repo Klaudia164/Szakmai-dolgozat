@@ -32,12 +32,12 @@ if(isset($_REQUEST['page'])) {
         }
 }
 
-$menupontok = array(    'page' => "Main", 
-                        'login' => "Login",
-                        'regisztracio' => "Register",
-                        'movies' => "Movies",
-                        'actors' => "Actors",
-                        'series' => "Tv shows",
+$menupontok = array(    'page' => "<span class='bi bi-house'></span> Main", 
+                        'movies' => "<span class='bi bi-film'></span> Movies",
+                        'actors' => "<span class='bi bi-people'></span> Actors",
+                        'series' => "<span class='bi bi-film forgat'></span> Tv shows",
+                        'login' => "<span class='bi bi-box-arrow-in-right'></span> Login",
+                        'regisztracio' => "<span class='bi bi-person-plus'></span> Register",
                 );
 
 $title = $menupontok[$page];

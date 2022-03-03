@@ -6,10 +6,11 @@ class actors {
     private $nev;
     private $nem;
     private $info;
+    private $hatter;
 
     public function set_actors($id, $conn) {
         // adatbázisból lekérdezzük
-        $sql = "SELECT id, nev, nem, info FROM szineszek";
+        $sql = "SELECT id, nev, nem, info, hatter FROM szineszek";
         $sql .= " WHERE id = $id ";
         $result = $conn->query($sql);
         if ($conn->query($sql)) {
@@ -19,7 +20,7 @@ class actors {
                 $this->nev = $row['nev'];
                 $this->mufaj = $row['nem'];
                 $this->info = $row['info'];
-                
+                $this->hatter = $row['hatter'];
             }
         } 
         else {
@@ -35,6 +36,10 @@ class actors {
         return $this->mufaj;
     }
 
+    public function get_hatter() {
+        return $this->hatter;
+    }
+
     public function get_id() {
         return $this->id;
     }
@@ -45,7 +50,11 @@ class actors {
 
     public function szineszekListaja($conn) {
         $lista = array();
-        $sql = "SELECT id FROM szineszek";
+        $search = '';
+        if(!empty ($_POST['search'])){
+            $search = $_POST['search'];
+        }
+        $sql = "SELECT id FROM szineszek WHERE nev LIKE ('%".$search."%')";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {

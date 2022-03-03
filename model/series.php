@@ -6,10 +6,11 @@ class series {
     private $nev;
     private $mufaj;
     private $info;
-
+    private $hatter;
+    
     public function set_series($id, $conn) {
         // adatbázisból lekérdezzük
-        $sql = "SELECT id, nev, mufaj, info FROM sorozatok";
+        $sql = "SELECT id, nev, mufaj, info, hatter FROM sorozatok";
         $sql .= " WHERE id = $id ";
         $result = $conn->query($sql);
         if ($conn->query($sql)) {
@@ -19,7 +20,7 @@ class series {
                 $this->nev = $row['nev'];
                 $this->mufaj = $row['mufaj'];
                 $this->info = $row['info'];
-                
+                $this->hatter = $row['hatter'];
             }
         } 
         else {
@@ -39,13 +40,21 @@ class series {
         return $this->id;
     }
 
+    public function get_hatter() {
+        return $this->hatter;
+    }
+
     public function get_info() {
         return $this->info;
     }
 
     public function sorozatokListaja($conn) {
         $lista = array();
-        $sql = "SELECT id FROM sorozatok";
+        $search = '';
+        if(!empty ($_POST['search'])){
+            $search = $_POST['search'];
+        }
+        $sql = "SELECT id FROM sorozatok WHERE nev LIKE ('%".$search."%')";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {
