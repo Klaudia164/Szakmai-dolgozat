@@ -12,11 +12,11 @@
     <form action="index.php?page=login" method="post" class="row g-3">
     <div class="form-group col-auto">
         <label>Username</label>
-        <input type="text" name="user" class="form-control">
+        <input type="text" name="user" class="form-control" required>
     </div>    
     <div class="form-group col-auto">
         <label>Password</label>
-        <input type="password" name="pw" class="form-control">
+        <input type="password" name="pw" class="form-control" required> 
     </div>
     <div class="form-group col-auto">
         <input type="submit" class="btn btn-primary" value="Login">
