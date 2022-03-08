@@ -65,6 +65,12 @@ class movies {
         }
         return $lista;
     }
+
+    public function komment($kom, $conn) {
+        $sql = "INSERT INTO f_comment (film_id, felhasznalo_id, komment) VALUES (".$this->id.",".$_SESSION['id'].", '".$kom."')";
+    
+        $conn->query($sql);
+    }
 }
 
 ?>
