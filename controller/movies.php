@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST['comment'])){
-    $movies -> komment($_POST['comment'], $_REQUEST['movieId'], $conn);
+    $movies -> komment(htmlspecialchars($_POST['comment']), $_REQUEST['movieId'], $conn);
     unset($_POST['comment']);
 }
 
