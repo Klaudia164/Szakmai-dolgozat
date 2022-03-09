@@ -71,6 +71,25 @@ class movies {
         $conn->query($sql);
        
     }
+
+    public function set_rating($rating, $mId, $conn){
+        $sql = "INSERT INTO filmekErtekelese (felhasznalo2_Id, film_id, ertek1) VALUES (".$_SESSION['id'].",".$mId.",".$rating.")";
+        $conn->query($sql);
+    }
+
+    public function get_rating($mId, $conn){
+        $sql = "SELECT ertek1 FROM filmekErtekelese WHERE felhasznalo2_Id = ".$_SESSION['id']." AND film_id = ".$mId."";
+
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    return $row['ertek1'];
+                }
+            }else{
+                return 0;
+            }
+        }
+    }
 }
 
 ?>

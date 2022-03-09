@@ -7,7 +7,7 @@ if(!isset($_REQUEST["movieId"])){
     }
 } else {
     $movies -> set_movie($_REQUEST["movieId"], $conn);
-    echo "<body style='background-image: url(images/".$movies -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed;'>";
+    echo "<body style='background-image: url(images/".$movies -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
     echo '<h1>' .$movies -> get_nev().'</h1>';
     echo '<p>' .$movies -> get_mufaj().'</p>';
     echo '<p>' .$movies -> get_info().'</p>';
@@ -18,6 +18,16 @@ if(!isset($_REQUEST["movieId"])){
     <input type="hidden" name="movieId" value=<?=$movies->get_id()?>>
     <input type="submit">
     </form>
+
+    <div class="rating-stars">
+    <h4 class="text-center mt-2 mb-4">
+        <i class="bi bi-star submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+        <i class="bi bi-star submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+        <i class="bi bi-star submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+        <i class="bi bi-star submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+        <i class="bi bi-star submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+    </h4>
+    </div>
     <?php
     }
 
@@ -34,19 +44,9 @@ if(!isset($_REQUEST["movieId"])){
 
 ?>
 
-<div class="rating-stars">
-    <h4 class="text-center mt-2 mb-4">
-        <i class="bi bi-star submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-    </h4>
-</div>
-
 <script>
     var rating_data = 0;
-
+    load_rating_data();
 $(document).on('mouseenter', '.submit_star', function(){
 
     var rating = $(this).data('rating');
@@ -65,9 +65,30 @@ $(document).on('mouseenter', '.submit_star', function(){
 
 $(document).on('mouseleave', '.rating-stars', function(){
 
-reset_background();
+    reset_background();
+    load_rating_data();
 
 });
+
+function load_rating_data()
+    {
+        $.ajax({
+            url:"controller/rating.php",
+            method:"POST",
+            data:{action:'load_data',movieId:'<?php echo $_REQUEST['movieId']?>'},
+            dataType:"JSON",
+            success:function(data)
+            {
+                for(var count = 1; count <= data.rating; count++)
+                {
+                        $('#submit_star_'+count).removeClass('bi-star');
+
+                        $('#submit_star_'+count).addClass('bi-star-fill');
+
+                    }
+            }  
+        })
+    }
 
 function reset_background()
     {
@@ -81,6 +102,20 @@ function reset_background()
         }
     }
 
+
+$('.submit_star').click(function(){
+    rating_data=$(this).data('rating');
+    $.ajax({
+        url:"index.php?page=movies&movieId=<?php echo $_REQUEST["movieId"]?>",
+        method:"POST",
+        data:{rating_data:rating_data},
+        success:function(data)
+        {
+            load_rating_data();
+        }
+    })
+
+});
 </script>
 <?php 
 }
