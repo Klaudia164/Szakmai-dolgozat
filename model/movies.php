@@ -66,10 +66,10 @@ class movies {
         return $lista;
     }
 
-    public function komment($kom, $conn) {
-        $sql = "INSERT INTO f_comment (film_id, felhasznalo_id, komment) VALUES (".$this->id.",".$_SESSION['id'].", '".$kom."')";
-    
+    public function komment($kom, $mId, $conn) {
+        $sql = "INSERT INTO f_comment (film_id, felhasznalo_id, komment) VALUES (".$mId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);
+       
     }
 }
 
