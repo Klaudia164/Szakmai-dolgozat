@@ -42,8 +42,8 @@
         
         ?>
     
-    <form class="d-flex" method = "post">
-      <input class="sch" type="search" name="search" aria-label="Search"></span>
+    <form class="d-flex keres" method = "post">
+      <input class="sch" type="search" name="search" aria-label="Search">
     </form>
       
     <?php

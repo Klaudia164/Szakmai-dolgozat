@@ -8,19 +8,17 @@ if(!isset($_REQUEST["movieId"])){
 } else {
     $movies -> set_movie($_REQUEST["movieId"], $conn);
     ?>
+    <div style='background-image: url(images/<?= $movies -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover; height: 50em; margin-top: 0;'>
+        <?php
+        echo '<h1>' .$movies -> get_nev().'</h1>';
+        ?>
+        </div>
     <div class="feloldal">
-        <div class="font">
     <?php
-    echo "<body style='background-image: url(images/".$movies -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1>' .$movies -> get_nev().'</h1>';
     echo '<p>' .$movies -> get_mufaj().'</p>';
     echo '<div>' .$movies -> get_info().'</div>';
-    ?>
-    </div>
-    </div>
-    <?php
     if(isset($_SESSION['id'])){
-    ?>
+?>
 
 <div class="rating-stars">
     <h4 class="text-center mt-2 mb-4">
@@ -54,9 +52,8 @@ if(!isset($_REQUEST["movieId"])){
             }
         }
     }
-
-
 ?>
+</div>
 
 <script>
     var rating_data = 0;

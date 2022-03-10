@@ -1,31 +1,24 @@
-<body class="page">
 <?php
 if(!isset($_REQUEST["seriesId"])){
-
+    echo "<body class='page'>";
     foreach($seriesList as $sId){
     $series -> set_series($sId, $conn);
     echo '<p><a href ="index.php?page=series&seriesId='.$sId.'">' .$series -> get_nev().'</a></p>';
     }
 } else {
     $series -> set_series($_REQUEST["seriesId"], $conn);
-    echo "<body style='background-image: url(images/".$series -> get_hatter()."); height: 50%; background-repeat: no-repeat; background-position: center; background-size: cover;'>";
     ?>
+    <div style='background-image: url(images/<?= $series -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover; height: 50em; margin-top: 0;'>
+        <?php
+        echo '<h1>' .$series -> get_nev().'</h1>';
+        ?>
+        </div>
     <div class="feloldal">
-        <div class="font">
-            <br>
-            <br>
     <?php
-    echo '<h1>' .$series -> get_nev().'</h1>';
     echo '<p>' .$series -> get_mufaj().'</p>';
     echo '<div>' .$series -> get_info().'</div>';
-    ?>
-    </div>
-    </div>
-    <br>
-    <br>
-    <?php
     if(isset($_SESSION['id'])){
-        ?>   
+?>  
         <div class="rating-stars">
             <h4 class="text-center mt-2 mb-4">
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_1" data-rating="1"></i>
@@ -61,7 +54,7 @@ if(!isset($_REQUEST["seriesId"])){
         
         
         ?>
-        
+        </div>
         <script>
             var rating_data = 0;
             load_rating_data();

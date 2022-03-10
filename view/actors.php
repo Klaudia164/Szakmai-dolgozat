@@ -8,17 +8,15 @@ if(!isset($_REQUEST["actorsId"])){
 } else {
     $actors -> set_actors($_REQUEST["actorsId"], $conn);
     ?>
+    <div style='background-image: url(images/<?= $actors -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover; height: 50em; margin-top: 0;'>
+        <?php
+        echo '<h1 class="cim">' .$actors -> get_nev().'</h1>';
+        ?>
+        </div>
     <div class="feloldal">
-        <div class="font">
     <?php
-    echo "<body style='background-image: url(images/".$actors -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1>' .$actors -> get_nev().'</h1>';
     echo '<p>' .$actors -> get_nem().'</p>';
     echo '<div>' .$actors -> get_info().'</div>';
-    ?>
-    </div>
-    </div>
-    <?php
     if(isset($_SESSION['id'])){
 ?>
 
@@ -55,9 +53,8 @@ if(!isset($_REQUEST["actorsId"])){
             }
         }
     }
-
-
 ?>
+</div>
 
 <script>
     var rating_data = 0;
