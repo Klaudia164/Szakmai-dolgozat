@@ -7,19 +7,22 @@ if(!isset($_REQUEST["movieId"])){
     }
 } else {
     $movies -> set_movie($_REQUEST["movieId"], $conn);
+    ?>
+    <div class="feloldal">
+        <div class="font">
+    <?php
     echo "<body style='background-image: url(images/".$movies -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1 class="font">' .$movies -> get_nev().'</h1>';
-    echo '<p class="font">' .$movies -> get_mufaj().'</p>';
-    echo '<div class="font">' .$movies -> get_info().'</div>';
+    echo '<h1>' .$movies -> get_nev().'</h1>';
+    echo '<p>' .$movies -> get_mufaj().'</p>';
+    echo '<div>' .$movies -> get_info().'</div>';
+    ?>
+    </div>
+    </div>
+    <?php
     if(isset($_SESSION['id'])){
     ?>
-    <form method="post">
-    <input type="textarea" name="comment" class="comm">
-    <input type="hidden" name="movieId" value=<?=$movies->get_id()?>>
-    <input type="submit" class="submit">
-    </form>
 
-    <div class="rating-stars">
+<div class="rating-stars">
     <h4 class="text-center mt-2 mb-4">
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_1" data-rating="1"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_2" data-rating="2"></i>
@@ -27,7 +30,12 @@ if(!isset($_REQUEST["movieId"])){
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
     </h4>
-    </div>
+</div>
+<form method="post">
+<input type="textarea" name="comment" class="comm">
+<input type="hidden" name="movieId" value=<?=$movies->get_id()?>>
+<input type="submit" class="submit">
+</form>
     <?php
     }
 
@@ -75,7 +83,7 @@ function load_rating_data()
         $.ajax({
             url:"controller/rating.php",
             method:"POST",
-            data:{action:'load_data',movieId:'<?php echo $_REQUEST['movieId']?>'},
+            data:{action:'movies',movieId:'<?php echo $_REQUEST['movieId']?>'},
             dataType:"JSON",
             success:function(data)
             {

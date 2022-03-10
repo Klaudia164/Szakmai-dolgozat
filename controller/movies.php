@@ -14,7 +14,7 @@ if(isset($_POST['comment'])){
 
 if (isset($_POST['rating_data']) && isset($_SESSION['id'])){
     $movies -> set_rating($_POST['rating_data'], $_REQUEST['movieId'], $conn);
-    header('location: index.php?page=movies&movieId='. $_REQUEST['movieId'].'');
+    unset($_POST);
 }
 
 
