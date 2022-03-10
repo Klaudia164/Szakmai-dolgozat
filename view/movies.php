@@ -8,24 +8,24 @@ if(!isset($_REQUEST["movieId"])){
 } else {
     $movies -> set_movie($_REQUEST["movieId"], $conn);
     echo "<body style='background-image: url(images/".$movies -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1>' .$movies -> get_nev().'</h1>';
-    echo '<p>' .$movies -> get_mufaj().'</p>';
-    echo '<p>' .$movies -> get_info().'</p>';
+    echo '<h1 class="font">' .$movies -> get_nev().'</h1>';
+    echo '<p class="font">' .$movies -> get_mufaj().'</p>';
+    echo '<div class="font">' .$movies -> get_info().'</div>';
     if(isset($_SESSION['id'])){
     ?>
     <form method="post">
-    <input type="textarea" name="comment">
+    <input type="textarea" name="comment" class="comm">
     <input type="hidden" name="movieId" value=<?=$movies->get_id()?>>
-    <input type="submit">
+    <input type="submit" class="submit">
     </form>
 
     <div class="rating-stars">
     <h4 class="text-center mt-2 mb-4">
-        <i class="bi bi-star submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-        <i class="bi bi-star submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+        <i class="bi bi-star submit_star mr-1 star" id="submit_star_1" data-rating="1"></i>
+        <i class="bi bi-star submit_star mr-1 star" id="submit_star_2" data-rating="2"></i>
+        <i class="bi bi-star submit_star mr-1 star" id="submit_star_3" data-rating="3"></i>
+        <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
+        <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
     </h4>
     </div>
     <?php
