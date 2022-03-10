@@ -9,13 +9,13 @@ require 'model/series.php';
 require 'model/actors.php';
 
 $felhasznalo = new felhasznalok();
-$movies = new movies();
+$movies = new Movies();
 $movieList = $movies -> filmekListaja($conn);
 
-$series = new series();
+$series = new Series();
 $seriesList = $series -> sorozatokListaja($conn);
 
-$actors = new actors();
+$actors = new Actors();
 $actorsList = $actors -> szineszekListaja($conn);
 // default page
 $page = 'page';
