@@ -10,6 +10,19 @@ h1, h2, h3, h4 {
     color: 	white;
 }
 
+
+.font{
+    font-family: 'IM Fell English';
+}
+
+.font2{
+    font-family: 'Trocchi';
+}
+
+.font3{
+    font-family: 'Love Ya Like A Sister';
+}
+
 img{
     box-shadow: 10px 20px 5px black;
 }
@@ -30,9 +43,6 @@ img{
     transform: rotate(0.5turn);
 }
 
-.feloldal{
-    width: 50%;
-}
 
 .sch {
     display:block;
@@ -51,3 +61,25 @@ img{
     width: 100%;
   }
   
+
+.comm{
+    background-color: rgb(64, 64, 64);
+    opacity: 0.7;
+    border-radius: 20px;
+    width: 50%;
+    height: 3em;
+    color: white;
+}
+
+.submit{
+    background-color: rgb(64, 64, 64);
+    opacity: 0.7;
+    border-radius: 20px;
+    width: 10%;
+    height: 3em;
+    color: white;
+}
+
+.star{
+    font-size: xx-large;
+}
