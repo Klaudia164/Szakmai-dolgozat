@@ -1,7 +1,6 @@
-<body class="page">
 <?php
 if(!isset($_REQUEST["actorsId"])){
-
+    echo "<body class='page'>";
     foreach($actorsList as $aId){
     $actors -> set_actors($aId, $conn);
     echo '<p><a href ="index.php?page=actors&actorsId='.$aId.'">' .$actors -> get_nev().'</a></p>';
