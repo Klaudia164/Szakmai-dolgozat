@@ -13,14 +13,25 @@ h1, h2, h3, h4 {
 
 .font{
     font-family: 'IM Fell English';
+    color: white;
+    opacity: 1.0;
 }
 
 .font2{
     font-family: 'Trocchi';
+    color: white;
 }
 
 .font3{
     font-family: 'Love Ya Like A Sister';
+    color: white;
+}
+
+
+.feloldal{
+    width: 50%;
+    background-color: black;
+    opacity: 0.7;
 }
 
 img{
