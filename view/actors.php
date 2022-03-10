@@ -8,20 +8,23 @@ if(!isset($_REQUEST["actorsId"])){
     }
 } else {
     $actors -> set_actors($_REQUEST["actorsId"], $conn);
+    ?>
+    <div class="feloldal">
+        <div class="font3">
+    <?php
     echo "<body style='background-image: url(images/".$actors -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1 class="font3">' .$actors -> get_nev().'</h1>';
-    echo '<p class="font3">' .$actors -> get_nem().'</p>';
-    echo '<div class="font3">' .$actors -> get_info().'</div>';
+    echo '<h1>' .$actors -> get_nev().'</h1>';
+    echo '<p>' .$actors -> get_nem().'</p>';
+    echo '<div>' .$actors -> get_info().'</div>';
+    ?>
+    </div>
+    </div>
+    <?php
     if(isset($_SESSION['id'])){
 ?>
 
-<form method="post">
-    <input type="textarea" name="comment" class="comm">
-    <input type="hidden" name="actorsId" value=<?=$actors->get_id()?>>
-    <input type="submit" class="submit">
-    </form>
 
-    <div class="rating-stars">
+<div class="rating-stars">
     <h4 class="text-center mt-2 mb-4">
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_1" data-rating="1"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_2" data-rating="2"></i>
@@ -29,7 +32,12 @@ if(!isset($_REQUEST["actorsId"])){
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
     </h4>
-    </div>
+</div>
+<form method="post">
+    <input type="textarea" name="comment" class="comm">
+    <input type="hidden" name="actorsId" value=<?=$actors->get_id()?>>
+    <input type="submit" class="submit">
+    </form>
     <?php
     }
 
@@ -77,7 +85,7 @@ function load_rating_data()
         $.ajax({
             url:"controller/rating.php",
             method:"POST",
-            data:{action:'load_data',actorsId:'<?php echo $_REQUEST['actorsId']?>'},
+            data:{action:'actors',actorsId:'<?php echo $_REQUEST['actorsId']?>'},
             dataType:"JSON",
             success:function(data)
             {

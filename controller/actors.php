@@ -9,7 +9,7 @@ if(isset($_POST['comment'])){
     fclose($cfile);
     $comment=str_replace($censored,"***",$_POST['comment']);
     $movies -> komment(htmlspecialchars($comment), $_REQUEST['actorsId'], $conn);
-    unset($_POST);
+    header('location: index.php?page=actors&actorsId='. $_REQUEST['actorsId'].'');
 }
 
 if (isset($_POST['rating_data']) && isset($_SESSION['id'])){
