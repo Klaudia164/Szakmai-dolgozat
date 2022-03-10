@@ -64,6 +64,32 @@ class series {
         }
         return $lista;
     }
+
+    public function komment($kom, $sId, $conn) {
+        $sql = "INSERT INTO s_comment (sorozat_Id, felhasznalo_id, komment) VALUES (".$sId.",".$_SESSION['id'].", '".$kom."')";
+        $conn->query($sql);
+       
+    }
+
+    public function set_rating($rating, $sId, $conn){
+        $sql = "INSERT INTO sorozatokErtekelese (felhasznalo1_Id, sorozat_Id, ertek2) VALUES (".$_SESSION['id'].",".$sId.",".$rating.")";
+        $conn->query($sql);
+    }
+
+    public function get_rating($sId, $conn){
+        $sql = "SELECT ertek2 FROM sorozatokErtekelese WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
+
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    return $row['ertek2'];
+                }
+            }else{
+                return 0;
+            }
+        }
+    }
+
 }
 
 ?>
