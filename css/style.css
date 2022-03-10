@@ -55,6 +55,15 @@ img{
 }
 
 
+.koment{
+    width: 50%;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+    font-size: x-large;
+}
+
+
 .sch {
     display:block;
     margin: 0 0 0 auto;

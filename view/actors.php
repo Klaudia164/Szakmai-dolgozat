@@ -46,7 +46,7 @@ if(!isset($_REQUEST["actorsId"])){
     if($result = $conn->query($sql)) {
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo $row['felhasznalonev']." ".$row['komment'];
+                echo $row['felhasznalonev']." ".$row['komment']."";
             }
         }
     }
