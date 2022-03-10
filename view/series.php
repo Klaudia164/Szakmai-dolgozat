@@ -8,20 +8,25 @@ if(!isset($_REQUEST["seriesId"])){
     }
 } else {
     $series -> set_series($_REQUEST["seriesId"], $conn);
-    echo "<body style='background-image: url(images/".$series -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
-    echo '<h1 class="font2">' .$series -> get_nev().'</h1>';
-    echo '<p class="font2">' .$series -> get_mufaj().'</p>';
-    echo '<div class="font2">' .$series -> get_info().'</div>';
+    echo "<body style='background-image: url(images/".$series -> get_hatter()."); height: 50%; background-repeat: no-repeat; background-position: center; background-size: cover;'>";
+    ?>
+    <div class="feloldal">
+        <div class="font2">
+            <br>
+            <br>
+    <?php
+    echo '<h1>' .$series -> get_nev().'</h1>';
+    echo '<p>' .$series -> get_mufaj().'</p>';
+    echo '<div>' .$series -> get_info().'</div>';
+    ?>
+    </div>
+    </div>
+    <br>
+    <br>
+    <?php
     if(isset($_SESSION['id'])){
-        ?>
-        
-        <form method="post">
-            <input type="textarea" name="comment" class="comm">
-            <input type="hidden" name="seriesId" value=<?=$series->get_id()?>>
-            <input type="submit" class="submit">
-            </form>
-        
-            <div class="rating-stars">
+        ?>   
+        <div class="rating-stars">
             <h4 class="text-center mt-2 mb-4">
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_1" data-rating="1"></i>
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_2" data-rating="2"></i>
@@ -29,7 +34,12 @@ if(!isset($_REQUEST["seriesId"])){
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
             </h4>
-            </div>
+        </div>
+        <form method="post">
+            <input type="textarea" name="comment" class="comm">
+            <input type="hidden" name="seriesId" value=<?=$series->get_id()?>>
+            <input type="submit" class="submit">
+            </form>
             <?php
             }
         
@@ -77,7 +87,7 @@ if(!isset($_REQUEST["seriesId"])){
                 $.ajax({
                     url:"controller/rating.php",
                     method:"POST",
-                    data:{action:'load_data',seriesId:'<?php echo $_REQUEST['seriesId']?>'},
+                    data:{action:'series',seriesId:'<?php echo $_REQUEST['seriesId']?>'},
                     dataType:"JSON",
                     success:function(data)
                     {
