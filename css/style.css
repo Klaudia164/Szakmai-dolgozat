@@ -17,16 +17,6 @@ h1, h2, h3, h4 {
     opacity: 1.0;
 }
 
-.font2{
-    font-family: 'Trocchi';
-    color: white;
-}
-
-.font3{
-    font-family: 'Love Ya Like A Sister';
-    color: white;
-}
-
 
 .feloldal{
     width: 50%;
@@ -61,6 +51,7 @@ img{
     opacity: 0.7;
     color: white;
     font-size: x-large;
+    margin-top: 0.3%;
 }
 
 

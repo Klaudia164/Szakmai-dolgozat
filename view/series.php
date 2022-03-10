@@ -11,7 +11,7 @@ if(!isset($_REQUEST["seriesId"])){
     echo "<body style='background-image: url(images/".$series -> get_hatter()."); height: 50%; background-repeat: no-repeat; background-position: center; background-size: cover;'>";
     ?>
     <div class="feloldal">
-        <div class="font2">
+        <div class="font">
             <br>
             <br>
     <?php
@@ -38,7 +38,7 @@ if(!isset($_REQUEST["seriesId"])){
         <form method="post">
             <input type="textarea" name="comment" class="comm">
             <input type="hidden" name="seriesId" value=<?=$series->get_id()?>>
-            <input type="submit" class="submit">
+            <input type="submit" class="submit" value="Submit">
             </form>
             <?php
             }
@@ -48,7 +48,13 @@ if(!isset($_REQUEST["seriesId"])){
             if($result = $conn->query($sql)) {
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        echo $row['felhasznalonev']." ".$row['komment'];
+                        ?>
+                        <div class="koment">
+                        <?php
+                        echo $row['felhasznalonev'].": ".$row['komment'];
+                        ?>
+                        </div>
+                        <?php
                     }
                 }
             }

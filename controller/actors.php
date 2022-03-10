@@ -8,7 +8,7 @@ if(isset($_POST['comment'])){
     }
     fclose($cfile);
     $comment=str_replace($censored,"***",$_POST['comment']);
-    $movies -> komment(htmlspecialchars($comment), $_REQUEST['actorsId'], $conn);
+    $actors -> komment(htmlspecialchars($comment), $_REQUEST['actorsId'], $conn);
     header('location: index.php?page=actors&actorsId='. $_REQUEST['actorsId'].'');
 }
 

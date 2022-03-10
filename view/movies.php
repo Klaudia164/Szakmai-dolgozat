@@ -34,7 +34,7 @@ if(!isset($_REQUEST["movieId"])){
 <form method="post">
 <input type="textarea" name="comment" class="comm">
 <input type="hidden" name="movieId" value=<?=$movies->get_id()?>>
-<input type="submit" class="submit">
+<input type="submit" class="submit" value="Submit">
 </form>
     <?php
     }
@@ -44,7 +44,13 @@ if(!isset($_REQUEST["movieId"])){
     if($result = $conn->query($sql)) {
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo $row['felhasznalonev']." ".$row['komment'];
+                ?>
+                <div class="koment">
+                <?php
+                echo $row['felhasznalonev'].": ".$row['komment'];
+                ?>
+                </div>
+                <?php
             }
         }
     }

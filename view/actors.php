@@ -9,7 +9,7 @@ if(!isset($_REQUEST["actorsId"])){
     $actors -> set_actors($_REQUEST["actorsId"], $conn);
     ?>
     <div class="feloldal">
-        <div class="font3">
+        <div class="font">
     <?php
     echo "<body style='background-image: url(images/".$actors -> get_hatter().");background-repeat: no-repeat; background-attachment: fixed; background-size: cover;'>";
     echo '<h1>' .$actors -> get_nev().'</h1>';
@@ -35,7 +35,7 @@ if(!isset($_REQUEST["actorsId"])){
 <form method="post">
     <input type="textarea" name="comment" class="comm">
     <input type="hidden" name="actorsId" value=<?=$actors->get_id()?>>
-    <input type="submit" class="submit">
+    <input type="submit" class="submit" value="Submit">
     </form>
     <?php
     }
@@ -45,7 +45,13 @@ if(!isset($_REQUEST["actorsId"])){
     if($result = $conn->query($sql)) {
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                echo $row['felhasznalonev']." ".$row['komment']."";
+                ?>
+                <div class="koment">
+                <?php
+                echo $row['felhasznalonev'].": ".$row['komment'];
+                ?>
+                </div>
+                <?php
             }
         }
     }
