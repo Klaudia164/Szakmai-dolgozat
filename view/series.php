@@ -10,7 +10,7 @@ if(!isset($_REQUEST["seriesId"])){
     ?>
     <div style='background-image: url(images/<?= $series -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover; height: 50em; margin-top: 0;'>
         <?php
-        echo '<h1>' .$series -> get_nev().'</h1>';
+        echo '<h1 class="cim">' .$series -> get_nev().'</h1>';
         ?>
         </div>
     <div class="feloldal">
@@ -26,6 +26,9 @@ if(!isset($_REQUEST["seriesId"])){
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_3" data-rating="3"></i>
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
+                <?php 
+                    echo '<span class="rating">' .$series -> get_avgrating($_REQUEST["seriesId"], $conn). '</span>';
+                ?>
             </h4>
         </div>
         <form method="post">
