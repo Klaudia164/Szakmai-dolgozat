@@ -7,7 +7,17 @@ if(isset($_POST['comment'])){
         $censored[]=trim($sor);
     }
     fclose($cfile);
-    $comment=str_replace($censored,"***",$_POST['comment']);
+    $comment = $_POST['comment'];
+    $words = explode(" ", $comment);
+    foreach($words as $word){
+        if(in_array($word,$censored)){
+            $replace="";
+            for($i=0;$i<strlen($word);$i++){
+                $replace.="*";
+            }
+            $comment=str_replace($word,$replace,$comment);
+        }
+    } 
     $series -> komment(htmlspecialchars($comment), $_REQUEST['seriesId'], $conn);
     header('location: index.php?page=series&seriesId='. $_REQUEST['seriesId'].'');
 }

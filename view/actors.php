@@ -28,6 +28,9 @@ if(!isset($_REQUEST["actorsId"])){
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_3" data-rating="3"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
+    <?php 
+    echo '<span class="rating">' .$actors -> get_avgrating($_REQUEST["actorsId"], $conn). '</span>';
+    ?>
     </h4>
 </div>
 <form method="post">

@@ -10,7 +10,7 @@ if(!isset($_REQUEST["movieId"])){
     ?>
     <div style='background-image: url(images/<?= $movies -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover; height: 50em; margin-top: 0;'>
         <?php
-        echo '<h1>' .$movies -> get_nev().'</h1>';
+        echo '<h1 class="cim">' .$movies -> get_nev().'</h1>';
         ?>
         </div>
     <div class="feloldal">
@@ -27,6 +27,9 @@ if(!isset($_REQUEST["movieId"])){
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_3" data-rating="3"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
+        <?php 
+    echo '<span class="rating">' .$movies -> get_avgrating($_REQUEST["movieId"], $conn). '</span>';
+    ?>
     </h4>
 </div>
 <form method="post">
