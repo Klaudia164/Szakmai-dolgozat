@@ -73,7 +73,14 @@ class movies {
     }
 
     public function set_rating($rating, $mId, $conn){
-        $sql = "INSERT INTO filmekErtekelese (felhasznalo2_Id, film_id, ertek1) VALUES (".$_SESSION['id'].",".$mId.",".$rating.")";
+        $sql = "SELECT ertek1 FROM filmekErtekelese WHERE felhasznalo2_Id = ".$_SESSION['id']." AND film_id = ".$mId."";
+        if($result = $conn->query($sql)){
+            if($result->num_rows > 0){
+                $sql = "UPDATE `filmekErtekelese` SET `ertek1`=".$rating." WHERE felhasznalo2_Id = ".$_SESSION['id']." AND film_id = ".$mId."";
+            }else{
+                $sql = "INSERT INTO filmekErtekelese (felhasznalo2_Id, film_id, ertek1) VALUES (".$_SESSION['id'].",".$mId.",".$rating.")";
+            }
+        }
         $conn->query($sql);
     }
 
@@ -84,6 +91,20 @@ class movies {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {
                     return $row['ertek1'];
+                }
+            }else{
+                return 0;
+            }
+        }
+    }
+
+    public function get_avgrating($mId, $conn){
+        $sql = "SELECT CAST(AVG(ertek1) AS DECIMAL (10,2)) AS atlag1 FROM filmekErtekelese WHERE film_id = ".$mId."";
+
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    return $row['atlag1'];
                 }
             }else{
                 return 0;

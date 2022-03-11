@@ -72,7 +72,14 @@ class series {
     }
 
     public function set_rating($rating, $sId, $conn){
-        $sql = "INSERT INTO sorozatokErtekelese (felhasznalo1_Id, sorozat_Id, ertek2) VALUES (".$_SESSION['id'].",".$sId.",".$rating.")";
+        $sql = "SELECT ertek2 FROM sorozatokErtekelese WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
+        if($result = $conn->query($sql)){
+            if($result->num_rows > 0){
+                $sql = "UPDATE `sorozatokErtekelese` SET `ertek2`=".$rating." WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
+            }else{
+                $sql = "INSERT INTO sorozatokErtekelese (felhasznalo1_Id, sorozat_Id, ertek2) VALUES (".$_SESSION['id'].",".$sId.",".$rating.")";
+            }
+        }
         $conn->query($sql);
     }
 
@@ -90,6 +97,20 @@ class series {
         }
     }
 
+
+    public function get_avgrating($sId, $conn){
+        $sql = "SELECT CAST(AVG(ertek2)  AS DECIMAL (10,2)) AS atlag2 FROM sorozatokErtekelese WHERE sorozat_Id = ".$sId."";
+
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    return $row['atlag2'];
+                }
+            }else{
+                return 0;
+            }
+        }
+    }
 }
 
 ?>
