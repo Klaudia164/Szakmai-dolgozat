@@ -51,5 +51,14 @@ include 'includes/menu.php';
 include 'controller/'.$page.'.php';
 
 ?>
+<audio id="audiotag1" preload="auto" ><source src="audio/nggyu.mp3" type="audio/mpeg"></audio>
+<h3></h3>
+<a href="javascript:play_single_sound();" class="audio">Play this song ;)</a>
+<script type="text/javascript">
+    function play_single_sound() {
+        document.getElementById('audiotag1').volume=0.1;
+        document.getElementById('audiotag1').play();
+    }
+    </script>
 </body>
 </html>
