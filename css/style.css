@@ -85,6 +85,21 @@ nav {
     color: white;
 }
 
+.koment .comm{
+    background-color: rgb(64, 64, 64);
+    width: 60%;
+    font-size: large;
+    opacity: 1;
+}
+
+.koment .submit{
+    background-color: rgb(64, 64, 64);
+    width: 20%;
+    font-size: medium;
+    opacity: 1;
+    
+}
+
 .submit{
     background-color: rgb(64, 64, 64);
     opacity: 0.7;
@@ -92,6 +107,8 @@ nav {
     width: 10%;
     height: 3em;
     color: white;
+    box-sizing: border-box;
+    min-width: 60px;
 }
 
 .star{
@@ -115,4 +132,51 @@ nav {
     font-family: 'IM Fell English';
     text-align: center !important;
     font-size: xx-large !important;
+}
+
+.kk{
+    background-color: rgb(64, 64, 64);
+    opacity: 0.7;
+    border-radius: 20px;
+    width: 15%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    color: white;
+    padding: 6px 2px;
+    text-align: center;
+    border: 1px solid gray;
+    min-width: 60px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a{
+    color: white !important;
+}
+
+form{
+    display:inline;
+}
+
+@media screen and (max-width:1000px) {
+    .submit{
+        font-size: medium;
+    }
+
+    .kk{
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .submit{
+        font-size: small;
+    }
+
+    .kk{
+        font-size: small;
+    }
 }
