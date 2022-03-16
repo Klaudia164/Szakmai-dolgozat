@@ -39,23 +39,45 @@ if(!isset($_REQUEST["seriesId"])){
             <?php
             }
         
-            $sql = "SELECT felhasznalonev, komment FROM `s_comment` INNER JOIN felhasznalok ON s_comment.felhasznalo_id = felhasznalok.id WHERE sorozat_Id=".$series -> get_id()."";
-        
+            $sql = "SELECT s_comment.id, felhasznalo_id, felhasznalonev, komment FROM `s_comment` INNER JOIN felhasznalok ON s_comment.felhasznalo_id = felhasznalok.id WHERE sorozat_Id=".$series -> get_id()."";
+
             if($result = $conn->query($sql)) {
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         ?>
                         <div class="koment">
                         <?php
+                        if(isset($_REQUEST['editId'])&&$_REQUEST['editId']==$row['id']){
+                            echo $row['felhasznalonev'].": ";
+                            ?>
+                            <form method="post">
+                            <input type="textarea" name="editcomment" class="comm" value="<?=$row['komment']?>">
+                            <input type="hidden" name="commentId" value=<?=$row['id']?>>
+                            <input type="submit" class="submit scroll" value="Submit">
+                            </form>
+                            <?php
+                        }else{
                         echo $row['felhasznalonev'].": ".$row['komment'];
+                        }
+                        //$felhasznalo -> set_user($_SESSION['id'], $conn);
+                        if(isset($_SESSION['id']) && ($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0)){?>
+                        <form method="post">
+                        <input type="submit" value="Delete" class="kk scroll">
+                        <input type="hidden" value="<?php echo $row['id'] ?>" name="removeId">
+                        </form>
+                        <?php
+                        }
+                        if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
                         ?>
+                         <div class="kk scroll"><a href="?<?php echo $_SERVER["QUERY_STRING"]."&editId=".$row['id'] ?>"> Edit </a></div>
+                         <?php
+                        }
+                         ?>
                         </div>
                         <?php
                     }
                 }
             }
-        
-        
         ?>
         </div>
         <script>

@@ -71,6 +71,23 @@ class series {
        
     }
 
+    public function delcomment($com_Id, $conn) {
+        $felhasznalo = new felhasznalok();
+        $felhasznalo->set_user($_SESSION['id'], $conn);
+        if($felhasznalo->get_permission()>0){
+            $sql = "DELETE FROM s_comment WHERE id = ".$com_Id."";
+        }else{
+            $sql = "DELETE FROM s_comment WHERE id = ".$com_Id." AND felhasznalo_id = ".$_SESSION['id']."";
+        }
+        $conn->query($sql);
+    }
+
+    public function editcomment($kom, $com_Id, $conn) {
+        $sql = "UPDATE s_comment SET komment = '".$kom."' WHERE felhasznalo_id = ".$_SESSION['id']." AND id = ".$com_Id."";
+        $conn->query($sql);
+        
+    }
+
     public function set_rating($rating, $sId, $conn){
         $sql = "SELECT ertek2 FROM sorozatokErtekelese WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
         if($result = $conn->query($sql)){
