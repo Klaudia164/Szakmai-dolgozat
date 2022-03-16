@@ -9,8 +9,7 @@ class felhasznalok {
 
     public function set_user($id, $conn) {
         // adatbázisból lekérdezzük
-        $sql = "SELECT id, felhasznalonev, jelszo FROM felhasznalok";
-        $sql .= " WHERE id = $id ";
+        $sql = "SELECT id, felhasznalonev, jelszo FROM felhasznalok WHERE id = ".$id."";
         if ($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();

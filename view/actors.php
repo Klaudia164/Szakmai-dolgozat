@@ -61,7 +61,7 @@ if(!isset($_REQUEST["actorsId"])){
                 }else{
                 echo $row['felhasznalonev'].": ".$row['komment'];
                 }
-                $felhasznalo -> set_user($_SESSION['id'], $conn);
+                //$felhasznalo -> set_user($_SESSION['id'], $conn);
                 if(isset($_SESSION['id']) && ($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0)){?>
                 <form method="post">
                 <input type="submit" value="Delete" class="kk scroll">
@@ -156,7 +156,7 @@ $('.submit_star').click(function(){
 
 });
 
-function saveScroll(form)
+/*function saveScroll(form)
     {
         const urlParams = new URLSearchParams(window.location.search);
         var path="";
@@ -165,7 +165,7 @@ function saveScroll(form)
         }
         path+="scroll="+window.scrollY;
         document.getElementById(form).action = "index.php?"+tomb;
-    }
+    }*/
 </script>
 <?php 
 }
