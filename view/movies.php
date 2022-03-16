@@ -40,7 +40,7 @@ if(!isset($_REQUEST["movieId"])){
     <?php
     }
 
-    $sql = "SELECT felhasznalonev, komment FROM `f_comment` INNER JOIN felhasznalok ON f_comment.felhasznalo_id = felhasznalok.id WHERE film_id=".$movies -> get_id()."";
+    $sql = "SELECT f_comment.id, felhasznalo_id, felhasznalonev, komment FROM `f_comment` INNER JOIN felhasznalok ON f_comment.felhasznalo_id = felhasznalok.id WHERE film_Id=".$movies -> get_id()."";
 
     if($result = $conn->query($sql)) {
         if ($result->num_rows > 0) {
@@ -60,7 +60,7 @@ if(!isset($_REQUEST["movieId"])){
                 }else{
                 echo $row['felhasznalonev'].": ".$row['komment'];
                 }
-                $felhasznalo -> set_user($_SESSION['id'], $conn);
+                //$felhasznalo -> set_user($_SESSION['id'], $conn);
                 if(isset($_SESSION['id']) && ($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0)){?>
                 <form method="post">
                 <input type="submit" value="Delete" class="kk scroll">

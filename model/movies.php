@@ -72,6 +72,23 @@ class movies {
        
     }
 
+    public function delcomment($com_Id, $conn) {
+        $felhasznalo = new felhasznalok();
+        $felhasznalo->set_user($_SESSION['id'], $conn);
+        if($felhasznalo->get_permission()>0){
+            $sql = "DELETE FROM f_comment WHERE id = ".$com_Id."";
+        }else{
+            $sql = "DELETE FROM f_comment WHERE id = ".$com_Id." AND felhasznalo_id = ".$_SESSION['id']."";
+        }
+        $conn->query($sql);
+    }
+
+    public function editcomment($kom, $com_Id, $conn) {
+        $sql = "UPDATE f_comment SET komment = '".$kom."' WHERE felhasznalo_id = ".$_SESSION['id']." AND id = ".$com_Id."";
+        $conn->query($sql);
+        
+    }
+
     public function set_rating($rating, $mId, $conn){
         $sql = "SELECT ertek1 FROM filmekErtekelese WHERE felhasznalo2_Id = ".$_SESSION['id']." AND film_id = ".$mId."";
         if($result = $conn->query($sql)){
