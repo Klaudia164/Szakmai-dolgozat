@@ -15,6 +15,11 @@ h1, h2, h3, h4 {
     color: 	white;
 }
 
+p{
+    font-size: large;
+    font-family: 'IM Fell English';
+}
+
 
 .feloldal{
     background-color: black;
@@ -179,4 +184,19 @@ form{
     .kk{
         font-size: small;
     }
+}
+
+.info{
+    font-size: large;
+}
+
+.select{
+    color:white;
+    background-color: rgb(64, 64, 64);
+    border-radius: 15px;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 20%;
+    height: 3em;
 }
