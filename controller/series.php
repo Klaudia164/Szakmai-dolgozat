@@ -1,10 +1,11 @@
 <?php
 
 if(isset($_POST['comment'])){
-    
+    if(!empty($_POST['comment'])){
     $comment = censore($_POST['comment']);
     $series -> komment(htmlspecialchars($comment), $_REQUEST['seriesId'], $conn);
     header('location: index.php?page=series&seriesId='. $_REQUEST['seriesId'].'');
+    }
 }
 
 if(isset($_POST['removeId'])){

@@ -16,7 +16,7 @@ if(!isset($_REQUEST["seriesId"])){
     <div class="feloldal">
     <?php
     echo '<p>' .$series -> get_mufaj().'</p>';
-    echo '<div>' .$series -> get_info().'</div>';
+    echo '<div class="info">' .$series -> get_info().'</div>';
     if(isset($_SESSION['id'])){
 ?>  
         <div class="rating-stars">
@@ -27,7 +27,7 @@ if(!isset($_REQUEST["seriesId"])){
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
                 <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
                 <?php 
-                    echo '<span class="rating">' .$series -> get_avgrating($_REQUEST["seriesId"], $conn). '</span>';
+                    echo '<span class="rating"></span>';
                 ?>
             </h4>
         </div>
@@ -59,14 +59,16 @@ if(!isset($_REQUEST["seriesId"])){
                         }else{
                         echo $row['felhasznalonev'].": ".$row['komment'];
                         }
-                        //$felhasznalo -> set_user($_SESSION['id'], $conn);
-                        if(isset($_SESSION['id']) && ($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0)){?>
+                        if(isset($_SESSION['id'])) {
+                            $felhasznalo -> set_user($_SESSION['id'], $conn);
+                            if($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0){?>
                         <form method="post">
                         <input type="submit" value="Delete" class="kk scroll">
                         <input type="hidden" value="<?php echo $row['id'] ?>" name="removeId">
                         </form>
                         <?php
                         }
+                    }
                         if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
                         ?>
                          <div class="kk scroll"><a href="?<?php echo $_SERVER["QUERY_STRING"]."&editId=".$row['id'] ?>"> Edit </a></div>
@@ -83,6 +85,8 @@ if(!isset($_REQUEST["seriesId"])){
         <script>
             var rating_data = 0;
             load_rating_data();
+            load_avgrating();
+            
         $(document).on('mouseenter', '.submit_star', function(){
         
             var rating = $(this).data('rating');
@@ -124,6 +128,7 @@ if(!isset($_REQUEST["seriesId"])){
                             }
                     }  
                 })
+                load_avgrating();
             }
         
         function reset_background()
@@ -138,6 +143,18 @@ if(!isset($_REQUEST["seriesId"])){
                 }
             }
         
+    function load_avgrating(){
+    $.ajax({
+            url:"controller/rating.php",
+            method:"POST",
+            data:{action:'series_avgrating',seriesId:'<?php echo $_REQUEST['seriesId']?>'},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $(".rating").html(data['avg']);
+            }  
+        })
+}
         
         $('.submit_star').click(function(){
             rating_data=$(this).data('rating');

@@ -1,10 +1,11 @@
 <?php
 
 if(isset($_POST['comment'])){
-    
-    $comment = censore($_POST['comment']);
-    $actors -> komment(htmlspecialchars($comment), $_REQUEST['actorsId'], $conn);
-    header('location: index.php?page=actors&actorsId='. $_REQUEST['actorsId'].'');
+    if(!empty($_POST['comment'])){
+        $comment = censore($_POST['comment']);
+        $actors -> komment(htmlspecialchars($comment), $_REQUEST['actorsId'], $conn);
+        header('location: index.php?page=actors&actorsId='. $_REQUEST['actorsId'].'');
+    }
 }
 
 if(isset($_POST['removeId'])){

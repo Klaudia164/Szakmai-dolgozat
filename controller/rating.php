@@ -18,6 +18,12 @@
             echo json_encode($output);
         }
     }
+    if (isset($_POST['action']) && $_POST['action']=="movie_avgrating"){
+        $output = array(
+            'avg' => $movies -> get_avgrating($_REQUEST["movieId"], $conn),
+        );
+    echo json_encode($output);
+    }
 
     $actors = new Actors();
     if (isset($_POST['action']) && $_POST['action']=="actors"){
@@ -32,6 +38,12 @@
             );
             echo json_encode($output);
         }
+    }
+    if (isset($_POST['action']) && $_POST['action']=="actors_avgrating"){
+        $output = array(
+            'avg' => $actors -> get_avgrating($_REQUEST["actorsId"], $conn),
+        );
+    echo json_encode($output);
     }
 
     $series = new Series();
@@ -48,4 +60,11 @@
             echo json_encode($output);
         }
     }
+    if (isset($_POST['action']) && $_POST['action']=="series_avgrating"){
+        $output = array(
+            'avg' => $series -> get_avgrating($_REQUEST["seriesId"], $conn),
+        );
+    echo json_encode($output);
+    }
+
 ?>
