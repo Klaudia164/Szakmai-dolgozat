@@ -34,8 +34,9 @@ if(isset($_REQUEST['page'])) {
 
 $menupontok = array(    'page' => "<span class='bi bi-house'></span> Main", 
                         'movies' => "<span class='bi bi-film'></span> Movies",
-                        'actors' => "<span class='bi bi-people'></span> Actors",
+                        'actors' => "<span class='bi bi-person-video2'></span> Actors",
                         'series' => "<span class='bi bi-film forgat'></span> Tv shows",
+                        'admin' => "<span class='bi bi-person-lines-fill'></span> Admin",
                         'login' => "<span class='bi bi-box-arrow-in-right'></span> Login",
                         'regisztracio' => "<span class='bi bi-person-plus'></span> Register",
                 );

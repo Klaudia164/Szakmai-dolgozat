@@ -19,12 +19,24 @@
                 <?php
               }
             }else{
-            ?>
-            <li class="nav-item<?php echo $active; ?>">
-                <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
-            </li>
-            <?php
-           
+              if($key == 'admin'){
+                if(isset($_SESSION['id'])){
+                  $felhasznalo -> set_user($_SESSION['id'], $conn);
+                  if($felhasznalo -> get_permission() > 2){
+                    ?>
+                      <li class="nav-item<?php echo $active; ?>">
+                        <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
+                      </li>
+                    <?php
+                  }
+                }
+              }else{
+                ?>
+                <li class="nav-item<?php echo $active; ?>">
+                  <a class="nav-link" href="index.php?page=<?php echo $key; ?>"><?php echo $value; ?></a>
+                </li>
+                <?php
+              }
             }           
         }
         if(isset($_SESSION['id'])){
