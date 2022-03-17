@@ -16,7 +16,7 @@ if(!isset($_REQUEST["movieId"])){
     <div class="feloldal">
     <?php
     echo '<p>' .$movies -> get_mufaj().'</p>';
-    echo '<div>' .$movies -> get_info().'</div>';
+    echo '<div class="info">' .$movies -> get_info().'</div>';
     if(isset($_SESSION['id'])){
 ?>
 
@@ -28,7 +28,7 @@ if(!isset($_REQUEST["movieId"])){
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_4" data-rating="4"></i>
         <i class="bi bi-star submit_star mr-1 star" id="submit_star_5" data-rating="5"></i>
         <?php 
-    echo '<span class="rating">' .$movies -> get_avgrating($_REQUEST["movieId"], $conn). '</span>';
+    echo '<span class="rating"></span>';
     ?>
     </h4>
 </div>
@@ -60,14 +60,16 @@ if(!isset($_REQUEST["movieId"])){
                 }else{
                 echo $row['felhasznalonev'].": ".$row['komment'];
                 }
-                //$felhasznalo -> set_user($_SESSION['id'], $conn);
-                if(isset($_SESSION['id']) && ($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0)){?>
+                if(isset($_SESSION['id'])) {
+                    $felhasznalo -> set_user($_SESSION['id'], $conn);
+                    if($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0){?>
                 <form method="post">
                 <input type="submit" value="Delete" class="kk scroll">
                 <input type="hidden" value="<?php echo $row['id'] ?>" name="removeId">
                 </form>
                 <?php
                 }
+            }
                 if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
                 ?>
                  <div class="kk scroll"><a href="?<?php echo $_SERVER["QUERY_STRING"]."&editId=".$row['id'] ?>"> Edit </a></div>
@@ -85,6 +87,8 @@ if(!isset($_REQUEST["movieId"])){
 <script>
     var rating_data = 0;
     load_rating_data();
+    load_avgrating();
+
 $(document).on('mouseenter', '.submit_star', function(){
 
     var rating = $(this).data('rating');
@@ -126,6 +130,7 @@ function load_rating_data()
                     }
             }  
         })
+        load_avgrating();
     }
 
 function reset_background()
@@ -140,6 +145,18 @@ function reset_background()
         }
     }
 
+    function load_avgrating(){
+    $.ajax({
+            url:"controller/rating.php",
+            method:"POST",
+            data:{action:'movie_avgrating',movieId:'<?php echo $_REQUEST['movieId']?>'},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $(".rating").html(data['avg']);
+            }  
+        })
+}
 
 $('.submit_star').click(function(){
     rating_data=$(this).data('rating');
