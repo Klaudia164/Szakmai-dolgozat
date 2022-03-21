@@ -1,202 +1,455 @@
 .page{
+
     background-image:url("../images/main.jpg");
+
     background-attachment: fixed;
+
     color: 	white; 
+
     
+
 }
+
+
 
 body{
+
     background-color: black !important;
+    opacity: 0.85;
+
     margin-top: 55px !important;
+
 }
 
-h1, h2, h3, h4 {
+
+
+h1, h2, h3 {
+
     margin-left: 100px;
+
     color: 	white;
+
+}
+
+h4{
+    color: 	white;
+
 }
 
 p{
+
     font-size: large;
+
     font-family: 'IM Fell English';
+
 }
+
+
+
 
 
 .feloldal{
+
     background-color: black;
+
     font-family: 'IM Fell English';
+
     color: white;
+
 }
+
+
 
 shadow{
+
     box-shadow: 10px 20px 10px black;
+
 }
 
+
+
 .bg{
+
     background-image:url("../images/main.jpg");
+
     color: 	white;
+
 }
+
+
 
 .wrapper{ width: 360px; padding: 20px; font: 14px sans-serif; }
 
+
+
 #navbarNav{
+
     font-family: 'Indie Flower';
+
     font-weight: bold;
+
 }
+
+
 
 .navbar{
+
     position: fixed;
+
     background-color: rgba(0, 0, 0, 0.884);
+
 }
+
+
 
 nav {
+
     box-shadow: 0 2px 4px 0 rgba(0,0,0);
+
   }
 
+
+
 .koment{
+
     width: 50%;
+
     background-color: black;
+
     opacity: 0.7;
+
     color: white;
+
     font-size: x-large;
+
     margin-top: 0.3%;
+
 }
+
+
+
 
 
 .sch {
+
     display:block;
+
     margin: 0 15px 0 auto;
+
     width: 20%;
+
     -webkit-transition: width 0.6s ease-in;
+
     transition: width 0.6s ease-in;
+
     background-color: rgb(64, 64, 64);
+
     opacity: 0.7;
+
     border-radius: 15px;
+
 }
+
+
 
 .sch::before {
+
     content: \f52a;
+
 }
+
 .sch:focus {
+
     width: 100%;
+
   }
+
   
 
+
+
 .comm{
+
     background-color: rgb(64, 64, 64);
+
     opacity: 0.7;
+
     border-radius: 20px;
+
     width: 50%;
+
     height: 3em;
+
     color: white;
+
 }
+
+
 
 .koment .comm{
+
     background-color: rgb(64, 64, 64);
+
     width: 60%;
-    font-size: large;
+
+    font-size: medium;
+
     opacity: 1;
+
 }
+
+
 
 .koment .submit{
+
     background-color: rgb(64, 64, 64);
-    width: 20%;
+
     font-size: medium;
+
     opacity: 1;
+
+    font-size: small;
+
     
+
 }
+
+
 
 .submit{
+
     background-color: rgb(64, 64, 64);
+
     opacity: 0.7;
+
     border-radius: 20px;
+
     width: 10%;
+
     height: 3em;
+
     color: white;
+
     box-sizing: border-box;
+
     min-width: 60px;
+
+    margin-bottom: 10px;
+
+    margin-left: 10px;
 }
+
+
 
 .star{
+
     font-size: xx-large;
+
 }
+
+.rating-stars{
+    width: 27.5%;
+    margin: auto;
+
+}
+
+
 
 .cim{
+
     font-family: 'IM Fell English';
+
     color: white;
+
     text-align: justify;
+
 }
+
+
 
 .rating{
+
     margin-left: 10px;
-    border: 1px solid gray;
+
     font-family: 'IM Fell English';
+
     color: white;
+
 }
+
+
 
 .audio{
+
     font-family: 'IM Fell English';
+
     text-align: center !important;
+
     font-size: xx-large !important;
+
 }
+
+
 
 .kk{
+
     background-color: rgb(64, 64, 64);
-    opacity: 0.7;
+
     border-radius: 20px;
-    width: 15%;
+
     margin-bottom: 10px;
+
     margin-top: 10px;
+
     display: inline-block;
+
     color: white;
+
     padding: 6px 2px;
+
     text-align: center;
+
     border: 1px solid gray;
+
     min-width: 60px;
+
+    font-size: medium;
+
+
 }
+
+
 
 a:link{
+
     text-decoration: none;
+
 }
+
+
 
 a{
+
     color: white !important;
+
 }
+
+
 
 form{
+
     display:inline;
+
 }
+
+
 
 @media screen and (max-width:1000px) {
+
     .submit{
-        font-size: medium;
+
+        font-size: small;
+
     }
 
+
+
     .kk{
-        font-size: medium;
+
+        font-size: small;
+
     }
+
 }
+
+
 
 @media screen and (max-width:600px) {
+
     .submit{
-        font-size: small;
+
+        font-size: x-small;
+
     }
+
+
 
     .kk{
-        font-size: small;
+
+        font-size: x-small;
+
     }
+
 }
+
+
 
 .info{
+
     font-size: large;
+
 }
 
+
+
 .select{
+
     color:white;
+
     background-color: rgb(64, 64, 64);
+
     border-radius: 15px;
+
     border: 1px solid black;
+
     margin-top: 15px;
+
     margin-left: 10px;
+
+    margin-bottom: 15px;
+
     width: 20%;
+
     height: 3em;
+
+}
+
+
+
+.label{
+
+    color: white;
+
+    margin-top: 10px;
+
+    margin-left: 10px;
+}
+
+
+
+div .up{
+    position: absolute;
+    color: white;
+    font-size: large;
+    font-family: 'David Libre';
+    width: 100%;
+
+}
+
+.upbg{
+    margin-left: 10px;
+    background-color: black;
+
+}
+
+.how{
+    color:white;
+    font-family: 'David Libre';
+}
+
+.right{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 50%;
 }

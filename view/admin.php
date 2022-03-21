@@ -21,7 +21,7 @@
         <option value="2">Admin</option>
         <option value="3">Boss</option>
     </select>
-    <input type="submit" class="submit" value="Submit" name="admin">
+    <input type="submit" class="submit" value="Add" name="admin">
 </form>
 </div>
 
@@ -42,6 +42,6 @@
         }
         ?>
     </select>
-    <input type="submit" class="submit" value="Submit" name="remove">
+    <input type="submit" class="submit" value="Delete" name="remove">
 </form>
 </div>
