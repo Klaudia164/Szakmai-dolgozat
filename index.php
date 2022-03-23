@@ -74,9 +74,11 @@ $menupontok = array(    'page' => "<span class='bi bi-house'></span> Main",
 
                         'series' => "<span class='bi bi-film forgat'></span> Tv shows",
 
+                        'upload' => "<span class='bi bi-upload'></span> Upload",
+
                         'admin' => "<span class='bi bi-person-lines-fill'></span> Admin",
 
-                        'upload' => "<span class='bi bi-upload'></span> Upload",
+                        'requests' => "<span class='bi bi-archive'></span> Requests",
 
                         'login' => "<span class='bi bi-box-arrow-in-right'></span> Login",
 

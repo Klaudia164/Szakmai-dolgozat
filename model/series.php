@@ -54,7 +54,21 @@ class series {
         if(!empty ($_POST['search'])){
             $search = $_POST['search'];
         }
-        $sql = "SELECT id FROM sorozatok WHERE nev LIKE ('%".$search."%')";
+        $sql = "SELECT id FROM sorozatok WHERE nev LIKE ('%".$search."%') AND elfogadva = 1";
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    $lista[] = $row['id'];
+                }
+            }
+        }
+        return $lista;
+    }
+
+
+    public function request_seriesLista($conn) {
+        $lista = array();
+        $sql = "SELECT id FROM sorozatok WHERE elfogadva = 0";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {

@@ -5,7 +5,6 @@
     background-attachment: fixed;
 
     color: 	white; 
-
     
 
 }
@@ -28,6 +27,9 @@ h1, h2, h3 {
     margin-left: 100px;
 
     color: 	white;
+
+    
+    font-family: 'IM Fell English';
 
 }
 
@@ -359,6 +361,11 @@ form{
         font-size: small;
 
     }
+    .submitupload{
+
+        font-size: small;
+
+    }
 
 }
 
@@ -378,6 +385,11 @@ form{
 
         font-size: x-small;
 
+    }
+
+    .submitupload{
+
+        font-size: x-small;
     }
 
 }
@@ -457,4 +469,17 @@ div .up{
 
 hr{
     width: 90%;
+}
+
+.submitupload{
+    background-color: rgb(64, 64, 64);
+    opacity: 0.7;
+    height:3em;
+    border-radius: 20px;
+    color: white;
+    box-sizing: border-box;
+    min-width: 60px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
