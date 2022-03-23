@@ -1,3 +1,4 @@
+<h1>Upload</h1>
 <div>
         <form method="post" enctype="multipart/form-data">
 
@@ -33,7 +34,7 @@
 
                 <div class="right">
                     <h1 class="how">How to fill out the information area?</h1>
-                    <p class="how"> To fill out the information area you will have to do a little html forming.<br><hr> When you're forming this please leave out the apostrophes between the less-than and greather-than signs.<br><hr>  For titles like Life, Career... you will have to put them in headings for example <'h1'>Life<'/h1'>.<br><hr> For subtitles like Early life... you will have to form them like this: <'h2'>Early life<'/h2'>.<br><hr> And lastly after every paragraph you have to write this: <'br'><'br'><br><hr></p>
+                    <p class="how"> Important: Your upload will only be visible after an admin accepts it.<br><hr> To fill out the information area you will have to do a little html forming.<br><hr> When you're forming this please leave out the apostrophes between the less-than and greather-than signs.<br><hr>  For titles like Life, Career... you will have to put them in headings for example <'h1'>Life<'/h1'>.<br><hr> For subtitles like Early life... you will have to form them like this: <'h2'>Early life<'/h2'>.<br><hr> And lastly after every paragraph you have to write this: <'br'><'br'><br><hr></p>
                     </div>
             </div>
 
@@ -57,7 +58,7 @@
 
                 <div class="right">
                 <h1 class="how">How to fill out the information area?</h1>
-                <p class="how"> To fill out the information area you will have to do a little html forming.<br><hr> When you're forming this please leave out the apostrophes between the less-than and greather-than signs.<br><hr>  For titles like Plot you will have to put them in headings for example <'h1'>Plot<'/h1'>.<br><hr> For subtitles like Season 1 you will have to form them like this: <'h2'>Season 1<'/h2'>.<br><hr> And lastly after every paragraph you have to write this: <'br'><'br'><br><hr></p>
+                <p class="how"> Important: Your upload will only be visible after an admin accepts it.<br><hr> To fill out the information area you will have to do a little html forming.<br><hr> When you're forming this please leave out the apostrophes between the less-than and greather-than signs.<br><hr>  For titles like Plot you will have to put them in headings for example <'h1'>Plot<'/h1'>.<br><hr> For subtitles like Season 1 you will have to form them like this: <'h2'>Season 1<'/h2'>.<br><hr> And lastly after every paragraph you have to write this: <'br'><'br'><br><hr></p>
                     </div>
             </div>
         </form>

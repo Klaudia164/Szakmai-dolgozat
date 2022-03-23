@@ -110,11 +110,11 @@ if(isset($_POST["type"])){
 
             $target_dir = "images/";
 
-            $target_file = $target_dir . basename($_FILES["bg"]['name']);
+            $target_file = $target_dir . $_POST['title'].basename($_FILES["bg"]['name']);
 
             if (@move_uploaded_file($_FILES["bg"]["tmp_name"], $target_file)) {
 
-                $sql = "INSERT INTO `sorozatok`(`nev`, `mufaj`, `info`, `hatter`) VALUES ('".$_POST['title']."','".$_POST['genre']."','".$_POST['info']."','".basename($_FILES["bg"]['name'])."')";
+                $sql = "INSERT INTO `sorozatok`(`nev`, `mufaj`, `info`, `hatter`) VALUES ('".$_POST['title']."','".$_POST['genre']."','".$_POST['info']."','".$_POST['title'].basename($_FILES["bg"]['name'])."')";
 
                 $conn->query($sql);  
 
@@ -168,11 +168,11 @@ if(isset($_POST["type"])){
 
             $target_dir = "images/";
 
-            $target_file = $target_dir . basename($_FILES["abg"]['name']);
+            $target_file = $target_dir . $_POST['name'].basename($_FILES["abg"]['name']);
 
             if (@move_uploaded_file($_FILES["abg"]["tmp_name"], $target_file)) {
 
-                $sql = "INSERT INTO `szineszek`(`nev`, `nem`, `info`, `hatter`) VALUES ('".$_POST['name']."','".$_POST['gender']."','".$_POST['ainfo']."','".basename($_FILES["abg"]['name'])."')";
+                $sql = "INSERT INTO `szineszek`(`nev`, `nem`, `info`, `hatter`) VALUES ('".$_POST['name']."','".$_POST['gender']."','".$_POST['ainfo']."','".$_POST['name'].basename($_FILES["abg"]['name'])."')";
 
                 $conn->query($sql);  
 
