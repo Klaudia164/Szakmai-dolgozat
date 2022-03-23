@@ -15,15 +15,15 @@
 
             <div id="actors" class="up">
 
-                <label for="name" class="label">Name: </label>
+                <label for="name" class="label">Name: </label><br>
 
                 <input type="text" name="name" class="upload"><br><br>
 
-                <label for="gender" class="label">Gender: </label>
+                <label for="gender" class="label">Gender: </label><br>
 
                 <input type="text" name="gender" class="upload"><br><br>
 
-                <label for="inform" class="label">Information: </label>
+                <label for="inform" class="label">Information: </label><br>
 
                 <textarea name="ainfo" rows="4"></textarea><br><br>
 
@@ -39,15 +39,15 @@
 
             <div id="movie/series" class="up">
 
-                <label for="name" class="label">Title: </label>
+                <label for="name" class="label">Title: </label><br>
 
                 <input type="text" name="title" class="upload"><br><br>
 
-                <label for="genre" class="label">Genre: </label>
+                <label for="genre" class="label">Genre: </label><br>
 
                 <input type="text" name="genre" class="upload"><br><br>
 
-                <label for="info" class="label">Information: </label>
+                <label for="info" class="label">Information: </label><br>
 
                 <textarea name="info" rows="4"></textarea><br><br>
 

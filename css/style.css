@@ -423,6 +423,7 @@ form{
     margin-top: 10px;
 
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 
@@ -432,12 +433,12 @@ div .up{
     color: white;
     font-size: large;
     font-family: 'David Libre';
-    width: 100%;
+    width: 90%;
+    margin-left: 20px;
 
 }
 
 .upbg{
-    margin-left: 10px;
     background-color: black;
 
 }
@@ -452,4 +453,8 @@ div .up{
     top: 5px;
     right: 0;
     width: 50%;
+}
+
+hr{
+    width: 90%;
 }
