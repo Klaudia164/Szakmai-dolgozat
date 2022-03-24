@@ -8,7 +8,7 @@ if(!isset($_REQUEST["seriesId"])){
 
     $series -> set_series($sId, $conn);
 
-    echo '<p><a href ="index.php?page=series&seriesId='.$sId.'">' .$series -> get_nev().'</a></p>';
+    echo '<p class="names"><a href ="index.php?page=series&seriesId='.$sId.'">' .$series -> get_nev().'</a></p>';
 
     }
 

@@ -8,7 +8,7 @@ if(!isset($_REQUEST["movieId"])){
 
     $movies -> set_movie($mId, $conn);
 
-    echo '<p><a href ="index.php?page=movies&movieId='.$mId.'">' .$movies -> get_nev().'</a></p>';
+    echo '<p class="names"><a href ="index.php?page=movies&movieId='.$mId.'">' .$movies -> get_nev().'</a></p>';
 
     }
 

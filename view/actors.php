@@ -8,7 +8,7 @@ if(!isset($_REQUEST["actorsId"])){
 
     $actors -> set_actors($aId, $conn);
 
-    echo '<p><a href ="index.php?page=actors&actorsId='.$aId.'">' .$actors -> get_nev().'</a></p>';
+    echo '<p class="names"><a href ="index.php?page=actors&actorsId='.$aId.'">' .$actors -> get_nev().'</a></p>';
 
     }
 
