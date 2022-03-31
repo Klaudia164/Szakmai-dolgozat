@@ -138,13 +138,13 @@ nav {
 
     display:block;
 
-    margin: 0 15px 0 auto;
+    margin: 0 10px 0 auto;
 
-    width: 20%;
+    width: 95%;
 
-    -webkit-transition: width 0.6s ease-in;
+    /*-webkit-transition: width 0.6s ease-in;
 
-    transition: width 0.6s ease-in;
+    transition: width 0.6s ease-in;*/
 
     background-color: rgb(64, 64, 64);
 
@@ -152,15 +152,17 @@ nav {
 
     border-radius: 15px;
 
+    padding: 5px;
+
 }
 
 
 
-.sch::before {
+/*.sch::before {
 
     content: \f52a;
 
-}
+}*/
 
 .sch:focus {
 

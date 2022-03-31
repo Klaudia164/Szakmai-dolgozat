@@ -1,7 +1,6 @@
 <?php
 
 
-
 $uploadError = '';
 
 
@@ -52,13 +51,26 @@ if(isset($_POST["type"])){
 
             $target_dir = "images/";
 
-            $target_file = $target_dir . basename($_FILES["bg"]['name']);
+            $target_file = $target_dir .  $_POST['title'].basename($_FILES["bg"]['name']);
 
             if (@move_uploaded_file($_FILES["bg"]["tmp_name"], $target_file)) {
 
-                $sql = "INSERT INTO `filmek`(`nev`, `mufaj`, `info`, `hatter`) VALUES ('".$_POST['title']."','".$_POST['genre']."','".$_POST['info']."','".basename($_FILES["bg"]['name'])."')";
+                $sql = "INSERT INTO `filmek`(`nev`, `mufaj`, `info`, `hatter`) VALUES (?, ?, ?, ?)";
 
-                $conn->query($sql);  
+
+                $stmt = $conn->prepare($sql); 
+
+                $stmt->bind_param("ssss",$title,$genre,$info,$bg);
+
+                $title=$_POST['title'];
+                $genre=$_POST['genre'];
+                $info=$_POST['info'];
+                $bg=$_POST['title'].basename($_FILES["bg"]['name']);
+                
+                $stmt->execute();
+                $stmt->close();
+
+                echo $conn->error;
 
             }
 
