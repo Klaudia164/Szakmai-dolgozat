@@ -2,7 +2,7 @@
 
 if(!isset($_REQUEST["seriesId"])){
 
-    echo "<body class='page'>";
+    //echo "<body class='page'>";
 
     foreach($seriesList as $sId){
 
@@ -347,5 +347,3 @@ if(!isset($_REQUEST["seriesId"])){
         }
 
         ?>
-
-        </body>

@@ -94,12 +94,16 @@ $title = $menupontok[$page];
 
 include 'includes/htmlheader.php';
 
+if(!isset($_REQUEST["movieId"]) || !isset($_REQUEST["actorsId"]) || !isset($_REQUEST["seriesId"])){
+
+echo "<body class='page'>";
+}else{
 ?>
 
 <body>
 
 <?php
-
+}
 
 
 include 'includes/menu.php';

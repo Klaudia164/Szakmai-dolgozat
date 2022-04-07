@@ -2,7 +2,7 @@
 
 if(!isset($_REQUEST["movieId"])){
 
-    echo "<body class='page'>";
+    //echo "<body class='page'>";
 
     foreach($movieList as $mId){
 
@@ -351,5 +351,3 @@ $('.submit_star').click(function(){
 }
 
 ?>
-
-</body>

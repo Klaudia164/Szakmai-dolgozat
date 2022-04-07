@@ -2,7 +2,7 @@
 
 if(!isset($_REQUEST["actorsId"])){
 
-    echo "<body class='page'>";
+    //echo "<body class='page'>";
 
     foreach($actorsList as $aId){
 
@@ -379,5 +379,3 @@ $('.submit_star').click(function(){
 }
 
 ?>
-
-</body>
