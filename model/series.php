@@ -65,6 +65,20 @@ class series {
         return $lista;
     }
 
+
+    public function request_seriesLista($conn) {
+        $lista = array();
+        $sql = "SELECT id FROM sorozatok WHERE elfogadva = 0";
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    $lista[] = $row['id'];
+                }
+            }
+        }
+        return $lista;
+    }
+
     public function komment($kom, $sId, $conn) {
         $sql = "INSERT INTO s_comment (sorozat_Id, felhasznalo_id, komment) VALUES (".$sId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);

@@ -66,6 +66,19 @@ class movies {
         return $lista;
     }
 
+    public function request_moviesLista($conn) {
+        $lista = array();
+        $sql = "SELECT id FROM filmek WHERE elfogadva = 0";
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    $lista[] = $row['id'];
+                }
+            }
+        }
+        return $lista;
+    }
+
     public function komment($kom, $mId, $conn) {
         $sql = "INSERT INTO f_comment (film_id, felhasznalo_id, komment) VALUES (".$mId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);

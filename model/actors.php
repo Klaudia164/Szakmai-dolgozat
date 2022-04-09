@@ -65,6 +65,19 @@ class actors {
         return $lista;
     }
 
+    public function request_actorsLista($conn) {
+        $lista = array();
+        $sql = "SELECT id FROM szineszek WHERE elfogadva = 0";
+        if($result = $conn->query($sql)) {
+            if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+                    $lista[] = $row['id'];
+                }
+            }
+        }
+        return $lista;
+    }
+
     public function komment($kom, $aId, $conn) {
         $sql = "INSERT INTO sz_comment (szinesz_Id, felhasznalo_id, komment) VALUES (".$aId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);
