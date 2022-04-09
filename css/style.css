@@ -200,3 +200,12 @@ form{
     width: 20%;
     height: 3em;
 }
+
+.label{
+    color: white;
+}
+
+div .up{
+    background-color: white;
+    opacity: 0.5;
+}

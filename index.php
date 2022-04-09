@@ -37,6 +37,7 @@ $menupontok = array(    'page' => "<span class='bi bi-house'></span> Main",
                         'actors' => "<span class='bi bi-person-video2'></span> Actors",
                         'series' => "<span class='bi bi-film forgat'></span> Tv shows",
                         'admin' => "<span class='bi bi-person-lines-fill'></span> Admin",
+                        'upload' => "<span class='bi bi-person-lines-fill'></span> Upload",
                         'login' => "<span class='bi bi-box-arrow-in-right'></span> Login",
                         'regisztracio' => "<span class='bi bi-person-plus'></span> Register",
                 );

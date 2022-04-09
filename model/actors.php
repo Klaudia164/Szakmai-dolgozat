@@ -54,7 +54,7 @@ class actors {
         if(!empty ($_POST['search'])){
             $search = $_POST['search'];
         }
-        $sql = "SELECT id FROM szineszek WHERE nev LIKE ('%".$search."%')";
+        $sql = "SELECT id FROM szineszek WHERE nev LIKE ('%".$search."%') AND elfogadva = 1";
         if($result = $conn->query($sql)) {
             if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()) {
