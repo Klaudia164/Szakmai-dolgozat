@@ -1,45 +1,25 @@
 <?php
-
+//sorozatok oldalainak kinézete
 if(!isset($_REQUEST["seriesId"])){
-
-    //echo "<body class='page'>";
-
     foreach($seriesList as $sId){
-
-    $series -> set_series($sId, $conn);
-
-    echo '<p class="names"><a href ="index.php?page=series&seriesId='.$sId.'">' .$series -> get_nev().'</a></p>';
-
+        $series -> set_series($sId, $conn);
+        echo '<p class="names"><a href ="index.php?page=series&seriesId='.$sId.'">' .$series -> get_nev().'</a></p>';
     }
-
 } else {
-
     $series -> set_series($_REQUEST["seriesId"], $conn);
-
-    ?>
-
+?>
     <div style='background-image: url(images/<?= $series -> get_hatter() ?>);background-repeat: no-repeat; background-attachment: scroll; background-size: cover;  height: 70em; margin-top: 0;'>
-
         <?php
-
-        echo '<h1 class="cim">' .$series -> get_nev().'</h1>';
-
+            echo '<h1 class="cim">' .$series -> get_nev().'</h1>';
         ?>
-
-        </div>
-
+    </div>
     <div class="feloldal">
-
-    <?php
-
-    echo '<p>' .$series -> get_mufaj().'</p>';
-
-    echo '<div class="info">' .$series -> get_info().'</div>';
-
-    if(isset($_SESSION['id'])){
-
-?>  
-
+        <?php
+            echo '<p>' .$series -> get_mufaj().'</p>';
+            echo '<div class="info">' .$series -> get_info().'</div>';
+            if(isset($_SESSION['id'])){
+        ?>  
+<!-- Értékelés megjelenítése a sorozatok oldalain-->
         <div class="rating-stars">
 
             <h4 class="text-center mt-2 mb-4">
@@ -61,7 +41,7 @@ if(!isset($_REQUEST["seriesId"])){
                 ?>
 
             </h4>
-
+<!-- kommentek megjelenítése a sorozatok oldalon -->
         </div>
 
         <form method="post">
@@ -91,7 +71,7 @@ if(!isset($_REQUEST["seriesId"])){
                     while($row = $result->fetch_assoc()) {
 
                         ?>
-
+                        <!-- komment mező és a küldés gomb beállítása -->
                         <div class="koment">
 
                         <?php
@@ -117,7 +97,8 @@ if(!isset($_REQUEST["seriesId"])){
                         }else{
 
                         echo $row['felhasznalonev'].": ".$row['komment'];
-
+                        //komment törlés gombjának beállítása
+                        //ez a gomb nem csak annak a felhasználónak elérhető aki írta a kommentet, hanem a moderátor szintű adminnak is
                         }
 
                         if(isset($_SESSION['id'])) {
@@ -126,20 +107,20 @@ if(!isset($_REQUEST["seriesId"])){
 
                             if($_SESSION['id']==$row['felhasznalo_id'] || $felhasznalo->get_permission()>0){?>
 
-                        <form method="post">
+                                <form method="post">
 
-                        <input type="submit" value="Delete" class="kk scroll">
+                                <input type="submit" value="Delete" class="kk scroll">
 
-                        <input type="hidden" value="<?php echo $row['id'] ?>" name="removeId">
+                                <input type="hidden" value="<?php echo $row['id'] ?>" name="removeId">
 
-                        </form>
+                                </form>
 
-                        <?php
+                                <?php
+
+                             }
 
                         }
-
-                    }
-
+//komment szerkesztési gomjának beállítása
                         if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
 
                         ?>
@@ -165,8 +146,8 @@ if(!isset($_REQUEST["seriesId"])){
         ?>
 
         </div>
-
-        <script>
+<!-- Értékelés működésének megvalósítása -->
+    <script>
 
             var rating_data = 0;
 
@@ -340,10 +321,7 @@ if(!isset($_REQUEST["seriesId"])){
 
         });
 
-        </script>
-
-        <?php 
-
-        }
-
-        ?>
+    </script>
+<?php 
+}
+?>

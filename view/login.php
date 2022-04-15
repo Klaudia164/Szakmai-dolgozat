@@ -1,3 +1,4 @@
+<!-- Login űrlap létrehozása -->
 <body class="bg">
 <div class="wrapper">
     <h2>Login</h2>

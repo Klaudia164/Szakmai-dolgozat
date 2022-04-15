@@ -1,5 +1,5 @@
 <?php
-
+//Filmek oldalainak kinézete
 if(!isset($_REQUEST["movieId"])){
 
     //echo "<body class='page'>";
@@ -40,8 +40,7 @@ if(!isset($_REQUEST["movieId"])){
 
 ?>
 
-
-
+<!-- Értékelés megjelenítése a filmek oldalain-->
 <div class="rating-stars">
 
     <h4 class="text-center mt-2 mb-4">
@@ -63,7 +62,7 @@ if(!isset($_REQUEST["movieId"])){
     ?>
 
     </h4>
-
+<!-- kommentek megjelenítése a filmek oldalon -->
 </div>
 
 <form method="post">
@@ -93,7 +92,7 @@ if(!isset($_REQUEST["movieId"])){
             while($row = $result->fetch_assoc()) {
 
                 ?>
-
+<!-- komment mező és a küldés gomb beállítása -->
                 <div class="koment">
 
                 <?php
@@ -119,7 +118,8 @@ if(!isset($_REQUEST["movieId"])){
                 }else{
 
                 echo $row['felhasznalonev'].": ".$row['komment'];
-
+                //komment törlés gombjának beállítása
+                //ez a gomb nem csak annak a felhasználónak elérhető aki írta a kommentet, hanem a moderátor szintű adminnak is
                 }
 
                 if(isset($_SESSION['id'])) {
@@ -141,7 +141,7 @@ if(!isset($_REQUEST["movieId"])){
                 }
 
             }
-
+//komment szerkesztési gomjának beállítása
                 if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
 
                 ?>
@@ -169,7 +169,7 @@ if(!isset($_REQUEST["movieId"])){
 </div>
 
 
-
+<!-- Értékelés működésének megvalósítása -->
 <script>
 
     var rating_data = 0;

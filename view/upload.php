@@ -1,4 +1,5 @@
 <h1>Upload</h1>
+<!-- Upload form létrehozása -->
 <div>
         <form method="post" enctype="multipart/form-data">
 
@@ -72,6 +73,7 @@
 
 ?>
 
+<!-- Upload form megjelenítésének beállításai -->
 <script>
 
     document.getElementById("actors").style.display = "none";

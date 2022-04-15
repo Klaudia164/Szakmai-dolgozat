@@ -11,7 +11,7 @@ if(isset($_SESSION['id'])){
     exit();
 }
 
-
+//requests elfogadás gombjának beállítása
 if(isset($_POST['accept'])){
    if($_POST['request_type']=="Movie"){
     $sql= "UPDATE `filmek` SET `elfogadva`='1' WHERE id=".$_REQUEST['movieId']."";
@@ -27,7 +27,7 @@ if(isset($_POST['accept'])){
    }
    header('location: index.php?page=requests');
 }
-
+//requests elutasítás gombjának beállítása
 if(isset($_POST['decline'])){
     if($_POST['request_type']=="Movie"){
         $sql= "DELETE FROM `filmek` WHERE id=".$_REQUEST['movieId']."";

@@ -5,6 +5,7 @@ require_once "includes/db.php";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
+// regisztráció létrehozása, hibakezelés
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     if(empty(trim($_POST["username"]))){
@@ -72,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
 
             $param_username = $username;
-            $param_password = md5($password); // Creates a password hash
+            $param_password = md5($password);
             
 
             if(mysqli_stmt_execute($stmt)){

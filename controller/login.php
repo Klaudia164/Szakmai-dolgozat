@@ -1,5 +1,5 @@
 <?php
-
+//Login rendszer létrehozása, hibakezelés
 if(isset($_POST['user']) and isset($_POST['pw'])) {
 	$loginError = '';
 	if(strlen($_POST['user']) == 0) $loginError .= "Please enter a username!<br>";

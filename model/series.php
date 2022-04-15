@@ -47,7 +47,7 @@ class series {
     public function get_info() {
         return $this->info;
     }
-
+//Sorozatok listájának lekérése az adatbázisból
     public function sorozatokListaja($conn) {
         $lista = array();
         $search = '';
@@ -65,7 +65,7 @@ class series {
         return $lista;
     }
 
-
+    //Requestsbel való sorozatok lekérése az adatbázisból
     public function request_seriesLista($conn) {
         $lista = array();
         $sql = "SELECT id FROM sorozatok WHERE elfogadva = 0";
@@ -78,13 +78,13 @@ class series {
         }
         return $lista;
     }
-
+    //kommentek feltöltése az adatbázisba
     public function komment($kom, $sId, $conn) {
         $sql = "INSERT INTO s_comment (sorozat_Id, felhasznalo_id, komment) VALUES (".$sId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);
        
     }
-
+//komment törlés funkciójának beállítása
     public function delcomment($com_Id, $conn) {
         $felhasznalo = new felhasznalok();
         $felhasznalo->set_user($_SESSION['id'], $conn);
@@ -95,13 +95,13 @@ class series {
         }
         $conn->query($sql);
     }
-
+//komment szerkeztési funkciójának beállítása
     public function editcomment($kom, $com_Id, $conn) {
         $sql = "UPDATE s_comment SET komment = '".$kom."' WHERE felhasznalo_id = ".$_SESSION['id']." AND id = ".$com_Id."";
         $conn->query($sql);
         
     }
-
+//Az új értékelések rögzítése és a régiek átírása
     public function set_rating($rating, $sId, $conn){
         $sql = "SELECT ertek2 FROM sorozatokErtekelese WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
         if($result = $conn->query($sql)){
@@ -113,7 +113,7 @@ class series {
         }
         $conn->query($sql);
     }
-
+//Értékelések lekérése az adatbázisból
     public function get_rating($sId, $conn){
         $sql = "SELECT ertek2 FROM sorozatokErtekelese WHERE felhasznalo1_Id = ".$_SESSION['id']." AND sorozat_Id = ".$sId."";
 
@@ -128,7 +128,7 @@ class series {
         }
     }
 
-
+//Átlagértékelés lekérése az adatbázisból
     public function get_avgrating($sId, $conn){
         $sql = "SELECT CAST(AVG(ertek2)  AS DECIMAL (10,2)) AS atlag2 FROM sorozatokErtekelese WHERE sorozat_Id = ".$sId."";
 

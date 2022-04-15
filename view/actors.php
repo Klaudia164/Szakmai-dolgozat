@@ -1,5 +1,5 @@
 <?php
-
+//Színészek oldalainak kinézete
 if(!isset($_REQUEST["actorsId"])){
 
     //echo "<body class='page'>";
@@ -43,7 +43,7 @@ if(!isset($_REQUEST["actorsId"])){
 
 
 
-
+<!-- Értékelés megjelenítése a színészek oldalain-->
 <div class="rating-stars">
 
     <h4 class="text-center mt-2 mb-4">
@@ -68,6 +68,7 @@ if(!isset($_REQUEST["actorsId"])){
 
 </div>
 
+<!-- kommentek megjelenítése a színészek oldalon -->
 <form method="post" id="sc">
 
     <input type="textarea" name="comment" class="comm">
@@ -95,7 +96,7 @@ if(!isset($_REQUEST["actorsId"])){
             while($row = $result->fetch_assoc()) {
 
                 ?>
-
+                <!-- komment mező és a küldés gomb beállítása -->
                 <div class="koment">
 
                 <?php
@@ -124,7 +125,8 @@ if(!isset($_REQUEST["actorsId"])){
 
                 }
 
-                
+                //komment törlés gombjának beállítása
+                //ez a gomb nem csak annak a felhasználónak elérhető aki írta a kommentet, hanem a moderátor szintű adminnak is
 
                 if(isset($_SESSION['id'])) {
 
@@ -145,7 +147,7 @@ if(!isset($_REQUEST["actorsId"])){
                 }
 
             }
-
+            //komment szerkesztési gomjának beállítása
                 if(isset($_SESSION['id']) && $_SESSION['id']==$row['felhasznalo_id']){
 
                 ?>
@@ -173,7 +175,7 @@ if(!isset($_REQUEST["actorsId"])){
 </div>
 
 
-
+<!-- Értékelés működésének megvalósítása -->
 <script>
 
     var rating_data = 0;
@@ -349,28 +351,6 @@ $('.submit_star').click(function(){
 
 
 });
-
-
-
-/*function saveScroll(form)
-
-    {
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        var path="";
-
-        for (const [key, value] of urlParams.entries()) {
-
-            path+=key+"="+value+"&";
-
-        }
-
-        path+="scroll="+window.scrollY;
-
-        document.getElementById(form).action = "index.php?"+tomb;
-
-    }*/
 
 </script>
 

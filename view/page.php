@@ -1,3 +1,4 @@
+<!-- Főoldal létrehozása -->
 <body class="page">
 
 <h1> Welcome to ...</h1>

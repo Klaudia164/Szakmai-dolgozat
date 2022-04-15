@@ -1,3 +1,4 @@
+<!-- Regisztrációhoz szükséges űrlap -->
 <body class="bg">
     <div class="wrapper">
         <h2>Register</h2>

@@ -1,4 +1,5 @@
 <h1>Request</h1>
+<!-- Requests form létrehozása-->
 <form method="post">
     <select name="request_type" class="select" id="type" onchange="type_change()">
         <option value="0"> Select type </option>
@@ -18,7 +19,7 @@
 
 <div id="series">
 <?php
-
+//A Requests-ben lévő adatok megjelenítése 
 if(!isset($_REQUEST["seriesId"])){
 
     foreach($sList as $sId){
@@ -140,6 +141,7 @@ echo '<div class="info">' .$actors -> get_info().'</div>';
 </div>
 
 <script>
+    
 <?php 
         if(isset($_REQUEST['movieId']) || (isset($_REQUEST['action']) && $_REQUEST['action'] == "movie") ){
             ?>

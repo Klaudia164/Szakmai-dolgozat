@@ -46,7 +46,7 @@ class felhasznalok {
     public function get_permission() {
         return $this->permission;
     }
-
+//Felhasználók listájának lekérése az adatbázisból
     public function felhasznalokListaja($conn) {
         $lista = array();
         $sql = "SELECT id FROM felhasznalok";

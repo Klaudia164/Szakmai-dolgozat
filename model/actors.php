@@ -47,7 +47,7 @@ class actors {
     public function get_info() {
         return $this->info;
     }
-
+//Színészek listájának lekérése az adatbázisból
     public function szineszekListaja($conn) {
         $lista = array();
         $search = '';
@@ -64,7 +64,7 @@ class actors {
         }
         return $lista;
     }
-
+    //Requestsbel való színészek lekérése az adatbázisból
     public function request_actorsLista($conn) {
         $lista = array();
         $sql = "SELECT id FROM szineszek WHERE elfogadva = 0";
@@ -78,12 +78,13 @@ class actors {
         return $lista;
     }
 
+    //kommentek feltöltése az adatbázisba
     public function komment($kom, $aId, $conn) {
         $sql = "INSERT INTO sz_comment (szinesz_Id, felhasznalo_id, komment) VALUES (".$aId.",".$_SESSION['id'].", '".$kom."')";
         $conn->query($sql);
        
     }
-
+//komment törlés funkciójának beállítása
     public function delcomment($com_Id, $conn) {
         $felhasznalo = new felhasznalok();
         $felhasznalo->set_user($_SESSION['id'], $conn);
@@ -94,13 +95,13 @@ class actors {
         }
         $conn->query($sql);
     }
-
+//komment szerkeztési funkciójának beállítása
     public function editcomment($kom, $com_Id, $conn) {
         $sql = "UPDATE sz_comment SET komment = '".$kom."' WHERE felhasznalo_id = ".$_SESSION['id']." AND id = ".$com_Id."";
         $conn->query($sql);
         
     }
-
+//Az új értékelések rögzítése és a régiek átírása
     public function set_rating($rating, $aId, $conn){
         $sql = "SELECT ertek3 FROM szineszekErtekelese WHERE felhasznalo_Id = ".$_SESSION['id']." AND szinesz_Id = ".$aId."";
         if($result = $conn->query($sql)){
@@ -113,6 +114,7 @@ class actors {
         $conn->query($sql);
     }
 
+//Értékelések lekérése az adatbázisból
     public function get_rating($aId, $conn){
         $sql = "SELECT ertek3 FROM szineszekErtekelese WHERE felhasznalo_Id = ".$_SESSION['id']." AND szinesz_Id = ".$aId."";
 
@@ -126,7 +128,7 @@ class actors {
             }
         }
     }
-
+//Átlagértékelés lekérése az adatbázisból
     public function get_avgrating($aId, $conn){
         $sql = "SELECT CAST(AVG(ertek3) AS DECIMAL (10,2)) AS atlag3 FROM szineszekErtekelese WHERE szinesz_Id = ".$aId."";
 
